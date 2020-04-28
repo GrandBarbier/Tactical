@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
 {
-    public GameObject MenuButton;
     public GameObject Resume;
+    public GameObject Restart;
+    public GameObject QuitB;
+    public GameObject Ship;
 
-    public GameObject Option;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +22,31 @@ public class MenuPause : MonoBehaviour
         if (Input.GetKeyDown("escape")) //le jeu s'arrète, les boutons du menu pause s'affiche
         {
             Debug.Log("PAUSE");
-            MenuButton.SetActive(true);
+            Restart.SetActive(true);
             Resume.SetActive(true);
+            QuitB.SetActive(true);
+            Ship.SetActive(false);
             Time.timeScale = 0;
-            Option.SetActive(true);
+            
         }
     }
     public void ResumeGame()
     {
         Debug.Log("RESUME"); //le jeu reprend son cours, les boutons disparaissent de l'écran
-        MenuButton.SetActive(false);
+        Restart.SetActive(false);
         Resume.SetActive(false);
-        Time.timeScale = 0;
-        Option.SetActive(false);
+        QuitB.SetActive(false);
+        Ship.SetActive(true);
+
+        Time.timeScale = 1;
+       
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Game"); //restart
+        Time.timeScale = 1;
+
     }
     public void Quit()
     {
