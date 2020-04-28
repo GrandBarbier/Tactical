@@ -7,9 +7,11 @@ public class Switch : MonoBehaviour
     public List<GameObject> player1 = new List<GameObject>();
     public List<GameObject> player2 = new List<GameObject>();
     public bool FirstP;
+    public GameObject test;
     // Start is called before the first frame update
     void Start()
     {
+
         FirstP = true;
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("player1"))
@@ -35,7 +37,10 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("j"))
+        {
+            test.SetActive(true);
+        }
     }
     public void SwitchPlayer()
     {
