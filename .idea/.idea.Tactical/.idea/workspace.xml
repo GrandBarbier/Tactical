@@ -11,12 +11,29 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/CameraControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Système de Tours/TurnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Système de Tours/NotMyTurn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Système de Tours/MyTurn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Système de Tours/FirstSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Switch.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/CameraControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Begin1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Begin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Switch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTurn1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTurn2.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Buttons.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Système de Tours/TurnManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Système de Tours/MyTurn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Système de Tours/NotMyTurn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Système de Tours/FirstSet.cs" />
       </list>
     </option>
   </component>
@@ -70,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587632464275</updated>
       <workItem from="1587632470920" duration="1144000" />
+      <workItem from="1587989605991" duration="7441000" />
     </task>
     <servers />
   </component>
@@ -78,4 +96,10 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="WindowStateProjectService">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587992530550">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587992530550" />
+  </component>
 </project>
