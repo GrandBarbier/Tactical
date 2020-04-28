@@ -10,6 +10,7 @@ public class StatVaisseau : ScriptableObject
     public int health;
     public int mvt;
     public int dmg;
+    public int portée;
     // Start is called before the first frame update
     void Start()
     {
