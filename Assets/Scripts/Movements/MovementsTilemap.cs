@@ -14,14 +14,19 @@ public class MovementsTilemap : MonoBehaviour
     public Vector3Int goalTile;
 
     public GameObject ship;
-    
+
     public TileBase selectedTile;
     public TileBase unselectedTile;
     
     public LayerMask mask;
 
     public int movePoints;
-    public List<Vector3Int> walkableTiles;
+    
+    public List<Vector3Int> walkable;
+
+    
+    
+    
 
     public bool selected;
     
@@ -31,6 +36,7 @@ public class MovementsTilemap : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider != null)
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,22 +45,33 @@ public class MovementsTilemap : MonoBehaviour
                 {
                     ResetTilemap();
                     startTile = walkableTilemap.WorldToCell(clickPos);
-                    GetWalkableTiles(movePoints, startTile);
+                    walkable = GetWalkableTiles(movePoints, startTile);
                     ColorWalkable();
                     ship = hit.collider.gameObject;
                     selected = true;
                 }
-                else
+                else if (hit.collider.tag == "walkable" && selected == true)
                 {
-                    for (int i = 0; i < walkableTiles.Count; i++)
+                    for (int i = 0; i < walkable.Count; i++)
                     {
-                        if (clickPos == walkableTiles[i])
+                        if (clickPos == walkable[i])
                         {
                             ship.transform.position = walkableTilemap.GetCellCenterWorld(clickPos);
                         }
                     }
                     selected = false;
                     ResetTilemap();
+                    Destroy(ship.GetComponent<BoxCollider2D>());
+                    ship.AddComponent<BoxCollider2D>();
+                    ship = null;
+                }
+                else if (selected == true)
+                {
+                    selected = false;
+                    ResetTilemap();
+                    Destroy(ship.GetComponent<BoxCollider2D>());
+                    ship.AddComponent<BoxCollider2D>();
+                    ship = null;
                 }
             }
         }
@@ -65,18 +82,16 @@ public class MovementsTilemap : MonoBehaviour
     {
         if (range >= 1)
         {
-            List<Vector3Int> walkable= new List<Vector3Int>();
+            List<Vector3Int> walkable = new List<Vector3Int>();
             walkable.Add(start);
             for (int i = 0; i < range; i++)
             {
                 foreach (var tile in walkable)
                 {
                     walkable= walkable.Union(GetAdjacentTiles(tile)).ToList();
-                    walkableTiles = walkableTiles.Union(GetAdjacentTiles(tile)).ToList();
                 }
             }
-
-            walkableTiles.Remove(start);
+            
             walkable.Remove(start);
             return walkable;
         }
@@ -121,17 +136,16 @@ public class MovementsTilemap : MonoBehaviour
     
     void ResetTilemap()
     {
-        //walkableTilemap.SetTile(selectedTile,unselectedTile);
-        foreach (var tile in walkableTiles)
+        foreach (var tile in walkable)
         {
             walkableTilemap.SetTile(tile,unselectedTile);
         }
-        walkableTiles.Clear();
+        walkable.Clear();
     }
-
+    
     void ColorWalkable()
     {
-        foreach (var tile in walkableTiles)
+        foreach (var tile in walkable)
         {
             walkableTilemap.SetTile(tile,selectedTile);
         }
