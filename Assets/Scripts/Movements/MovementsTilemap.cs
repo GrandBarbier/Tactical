@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,20 +24,34 @@ public class MovementsTilemap : MonoBehaviour
     public int movePoints;
     
     public List<Vector3Int> walkable;
+    
+    public List<GameObject> allShips;
+    public List<Vector3Int> allShipsPos;
 
-    
-    
-    
 
     public bool selected;
-    
-    
+
+    private void Start()
+    {
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Player")).ToList();
+        ActualiseShipPos();
+    }
+
     void Update()
     {
+        
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Player")).ToList();
+        ActualiseShipPos();
+        
         if (Input.GetMouseButtonDown(0))
         {
+            for (int i = 0; i < allShips.Count; i++)
+            {
+                Destroy(allShips[i].GetComponent<BoxCollider2D>());
+                allShips[i].AddComponent<BoxCollider2D>();
+            }
+            
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider != null)
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -61,16 +76,12 @@ public class MovementsTilemap : MonoBehaviour
                     }
                     selected = false;
                     ResetTilemap();
-                    Destroy(ship.GetComponent<BoxCollider2D>());
-                    ship.AddComponent<BoxCollider2D>();
                     ship = null;
                 }
                 else if (selected == true)
                 {
                     selected = false;
                     ResetTilemap();
-                    Destroy(ship.GetComponent<BoxCollider2D>());
-                    ship.AddComponent<BoxCollider2D>();
                     ship = null;
                 }
             }
@@ -91,7 +102,6 @@ public class MovementsTilemap : MonoBehaviour
                     walkable= walkable.Union(GetAdjacentTiles(tile)).ToList();
                 }
             }
-            
             walkable.Remove(start);
             return walkable;
         }
@@ -123,16 +133,22 @@ public class MovementsTilemap : MonoBehaviour
 
     public bool WalkableCheck(Vector3Int tile)
     {
-        if (obstacleTilemap.GetTile(tile) == null)
+        for (int i = 0; i < allShipsPos.Count; i++)
         {
-            return true;
+            if (tile == allShipsPos[i])
+            {
+                return false;
+            }
         }
-        else
+        if (obstacleTilemap.GetTile(tile) != null)
         {
             return false;
         }
+        else
+        {
+            return true;
+        }
     }
-    
     
     void ResetTilemap()
     {
@@ -148,6 +164,17 @@ public class MovementsTilemap : MonoBehaviour
         foreach (var tile in walkable)
         {
             walkableTilemap.SetTile(tile,selectedTile);
+        }
+    }
+
+    void ActualiseShipPos()
+    {
+        allShipsPos.Clear();
+        
+        for (int i = 0; i < allShips.Count; i++)
+        {
+            Vector3Int pos = Vector3Int.FloorToInt(allShips[i].transform.position);
+            allShipsPos.Add(pos);
         }
     }
 }
