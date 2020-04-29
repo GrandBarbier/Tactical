@@ -2869,7 +2869,7 @@ MonoBehaviour:
     m_Bits: 2147483648
   TagFilterAlly: player2
   TagFilterEnemy: player1
-  movePoints: 3
+  movePoints: 4
   walkable: []
   allShips: []
   allShipsPos: []
@@ -3872,7 +3872,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061103673}
-  - component: {fileID: 2061103672}
   - component: {fileID: 2061103674}
   m_Layer: 0
   m_Name: GameplayManager
@@ -3881,34 +3880,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2061103672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061103671}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd64c468d25daf4084f000b7b728d86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkableTilemap: {fileID: 942614340}
-  obstacleTilemap: {fileID: 1673743872}
-  startTile: {x: 0, y: 0, z: 0}
-  ship: {fileID: 0}
-  selectedTile: {fileID: 11400000, guid: b1668cc224e6b2640a7a3170732cc1e1, type: 2}
-  unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
-  mask:
-    serializedVersion: 2
-    m_Bits: 2147483648
-  TagFilterAlly: 
-  TagFilterEnemy: 
-  movePoints: 4
-  walkable: []
-  allShips: []
-  allShipsPos: []
-  selected: 0
 --- !u!4 &2061103673
 Transform:
   m_ObjectHideFlags: 0

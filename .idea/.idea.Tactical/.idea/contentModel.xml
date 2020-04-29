@@ -21,6 +21,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Money.cs" t="Include" />
           <e p="Movements" t="Include">
             <e p="MovementsTilemap.cs" t="Include" />
           </e>
