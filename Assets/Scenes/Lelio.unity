@@ -3904,7 +3904,7 @@ MonoBehaviour:
     m_Bits: 2147483648
   TagFilterAlly: 
   TagFilterEnemy: 
-  movePoints: 3
+  movePoints: 4
   walkable: []
   allShips: []
   allShipsPos: []
