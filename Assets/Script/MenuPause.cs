@@ -8,7 +8,7 @@ public class MenuPause : MonoBehaviour
     public GameObject Resume;
     public GameObject Restart;
     public GameObject QuitB;
-    public GameObject Ship;
+    public GameObject GameplayManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class MenuPause : MonoBehaviour
             Restart.SetActive(true);
             Resume.SetActive(true);
             QuitB.SetActive(true);
-            Ship.SetActive(false);
+            GameplayManager.SetActive(false);
             Time.timeScale = 0;
             
         }
@@ -36,7 +36,7 @@ public class MenuPause : MonoBehaviour
         Restart.SetActive(false);
         Resume.SetActive(false);
         QuitB.SetActive(false);
-        Ship.SetActive(true);
+        GameplayManager.SetActive(true);
 
         Time.timeScale = 1;
        
@@ -44,7 +44,7 @@ public class MenuPause : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Game"); //restart
+        SceneManager.LoadScene("Lelio"); //restart
         Time.timeScale = 1;
 
     }
