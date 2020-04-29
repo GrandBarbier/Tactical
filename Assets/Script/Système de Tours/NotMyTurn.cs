@@ -11,12 +11,12 @@
         }
         public override void OnStateEnter()
         {
-            player.reglette.SetActive(false);
+           
         }
     
         public override void OnStateExit()
         {
-        
+            player.movementsTilemap.enabled = true;
         }
     }
 }

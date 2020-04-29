@@ -4,6 +4,7 @@
     {
         public MyTurn(Player player) : base(player)
         {
+            
         }
         public override void Tick()
         {
@@ -16,7 +17,7 @@
     
         public override void OnStateExit()
         {
-        
+            player.movementsTilemap.enabled = false;
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.Système_de_Tours
 {
@@ -8,13 +10,11 @@ namespace Script.Système_de_Tours
     {
         public static TurnManager Instance;
     
-        public List<Player> actualPlayers = new List<Player>();
+        public List<GameObject> players ;
 
         public int actualTurn;
 
-        public TextMeshProUGUI turnText;
-        public TextMeshProUGUI p1State;
-        public TextMeshProUGUI p2State;
+        public Text turnText;
 
         void Awake()
         {
@@ -30,25 +30,23 @@ namespace Script.Système_de_Tours
         private void Start()
         {
             actualTurn = 0;
-            actualPlayers[actualTurn].ItsMyTurn();
+            players[actualTurn].GetComponent<Player>().ItsMyTurn();
         }
 
         private void Update()
         {
-            turnText.text = "C'est le tour de " + actualPlayers[actualTurn].name;
-            p1State.text = "P1 : " + actualPlayers[0].currentState;
-            p2State.text = "P2 : " + actualPlayers[1].currentState;
+            turnText.text = "Tour de " + players[actualTurn].name;
         }
 
         public void NextTurn()
         {
-            actualPlayers[actualTurn].ItsNotMyTurn();
+            players[actualTurn].GetComponent<Player>().ItsNotMyTurn();
             actualTurn ++;
-            if (actualTurn > actualPlayers.Count - 1)
+            if (actualTurn > players.Count - 1)
             {
                 actualTurn = 0;
             }
-            actualPlayers[actualTurn].ItsMyTurn();
+            players[actualTurn].GetComponent<Player>().ItsMyTurn();
         }
     }
 }

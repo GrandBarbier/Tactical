@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,9 +11,7 @@ public class MovementsTilemap : MonoBehaviour
     public Tilemap walkableTilemap;
     public Tilemap obstacleTilemap;
     
-    
     public Vector3Int startTile;
-    public Vector3Int goalTile;
 
     public GameObject ship;
 
@@ -21,6 +20,13 @@ public class MovementsTilemap : MonoBehaviour
     
     public LayerMask mask;
 
+    [TagSelector]
+    public string TagFilterAlly = "";
+    
+    [TagSelector]
+    public string TagFilterEnemy = "";
+
+    
     public int movePoints;
     
     public List<Vector3Int> walkable;
@@ -33,14 +39,16 @@ public class MovementsTilemap : MonoBehaviour
 
     private void Start()
     {
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Player")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
     }
 
     void Update()
     {
         
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Player")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
         
         if (Input.GetMouseButtonDown(0))
@@ -56,7 +64,7 @@ public class MovementsTilemap : MonoBehaviour
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
-                if (hit.collider.tag == "Player" && selected == false)
+                if (hit.collider.tag == TagFilterAlly && selected == false)
                 {
                     ResetTilemap();
                     startTile = walkableTilemap.WorldToCell(clickPos);

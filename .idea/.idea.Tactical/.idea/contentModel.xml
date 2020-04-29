@@ -13,7 +13,6 @@
           <e p="Move.cs" t="Include" />
           <e p="Switch.cs" t="Include" />
           <e p="Système de Tours" t="Include">
-            <e p="FirstSet.cs" t="Include" />
             <e p="MyTurn.cs" t="Include" />
             <e p="NotMyTurn.cs" t="Include" />
             <e p="Player.cs" t="Include" />
@@ -24,6 +23,10 @@
         <e p="Scripts" t="Include">
           <e p="Movements" t="Include">
             <e p="MovementsTilemap.cs" t="Include" />
+          </e>
+          <e p="PropertyDrawers" t="Include">
+            <e p="TagSelectorAttribute.cs" t="Include" />
+            <e p="TagSelectorPropertyDrawer.cs" t="Include" />
           </e>
           <e p="StatVaisseau.cs" t="Include" />
         </e>

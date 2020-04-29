@@ -8,14 +8,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     
     public State currentState;
-    public GameObject reglette;
 
-    private bool _firsSet;
+    public MovementsTilemap movementsTilemap;
     
+
+
+
     private void Start()
     {
         SetState(new NotMyTurn(this));
-        _firsSet = false;
+        movementsTilemap = GetComponent<MovementsTilemap>(); 
     }
     
     public void SetState(State state)
@@ -31,12 +33,7 @@ public class Player : MonoBehaviour
 
     public void ItsMyTurn()
     {
-        if(_firsSet)
-            SetState(new MyTurn(this));
-        else
-        {
-            SetState(new FirstSet(this));
-        }
+        SetState(new MyTurn(this));
     }
 
     public void ItsNotMyTurn()
