@@ -5,6 +5,7 @@ using System.Linq;
 using Pathfinding;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class MovementsTilemap : MonoBehaviour
@@ -36,8 +37,7 @@ public class MovementsTilemap : MonoBehaviour
     
     public List<GameObject> allShips;
     public List<Vector3Int> allShipsPos;
-
-
+    
     public bool selected;
 
     private void Start()
@@ -84,6 +84,7 @@ public class MovementsTilemap : MonoBehaviour
                         {
 //                            ship.transform.position = walkableTilemap.GetCellCenterWorld(clickPos);
                             ship.GetComponent<AIDestinationSetter>().target = Instantiate(destination, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity).transform;
+                            Destroy(GameObject.FindGameObjectWithTag("Destination"), 0.2f);
                         }
                     }
                     selected = false;
