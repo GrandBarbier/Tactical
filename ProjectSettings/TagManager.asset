@@ -8,6 +8,7 @@ TagManager:
   - player2
   - walkable
   - StationP1
+  - Destination
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - StationP1
-  - 
-  - 
+  - Obstacles
+  - Player
   - 
   - 
   - 
