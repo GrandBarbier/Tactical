@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -20,6 +21,8 @@ public class MovementsTilemap : MonoBehaviour
     
     public LayerMask mask;
 
+    public GameObject destination;
+    
     [TagSelector]
     public string TagFilterAlly = "";
     
@@ -79,7 +82,8 @@ public class MovementsTilemap : MonoBehaviour
                     {
                         if (clickPos == walkable[i])
                         {
-                            ship.transform.position = walkableTilemap.GetCellCenterWorld(clickPos);
+//                            ship.transform.position = walkableTilemap.GetCellCenterWorld(clickPos);
+                            ship.GetComponent<AIDestinationSetter>().target = Instantiate(destination, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity).transform;
                         }
                     }
                     selected = false;
