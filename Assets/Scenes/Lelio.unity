@@ -565,6 +565,7 @@ MonoBehaviour:
   movePoints: 3
   walkable: []
   allShips: []
+  allyShips: []
   allShipsPos: []
   selected: 0
 --- !u!114 &560938926
@@ -786,6 +787,7 @@ GameObject:
   - component: {fileID: 879395131}
   - component: {fileID: 879395130}
   - component: {fileID: 879395129}
+  - component: {fileID: 879395128}
   m_Layer: 31
   m_Name: ShipP2
   m_TagString: player2
@@ -793,6 +795,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &879395128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879395127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipStats: {fileID: 0}
+  moved: 0
 --- !u!61 &879395129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -894,6 +910,7 @@ GameObject:
   - component: {fileID: 929819945}
   - component: {fileID: 929819944}
   - component: {fileID: 929819943}
+  - component: {fileID: 929819946}
   m_Layer: 31
   m_Name: ShipP1
   m_TagString: player1
@@ -991,6 +1008,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929819946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929819942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipStats: {fileID: 0}
+  moved: 0
 --- !u!1 &939050421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2903,7 @@ MonoBehaviour:
   movePoints: 4
   walkable: []
   allShips: []
+  allyShips: []
   allShipsPos: []
   selected: 0
 --- !u!114 &1038284535
@@ -3873,6 +3905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061103673}
   - component: {fileID: 2061103674}
+  - component: {fileID: 2061103672}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -3880,6 +3913,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2061103672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061103671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f179d4b4ce1f39458e518fccb0ee1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ships:
+  - {fileID: 11400000, guid: 41e3534e8254bd845a90ef5378817e7b, type: 2}
+  - {fileID: 11400000, guid: a4999fc344a67cc4591473046598410a, type: 2}
+  - {fileID: 11400000, guid: a71238e09e5c14e4ca60bac33629a011, type: 2}
+  - {fileID: 11400000, guid: b9fae05c072031241aa2b9f82c4363ed, type: 2}
+  - {fileID: 11400000, guid: 6631051dbc0bb6540b1001528d11bf5b, type: 2}
 --- !u!4 &2061103673
 Transform:
   m_ObjectHideFlags: 0

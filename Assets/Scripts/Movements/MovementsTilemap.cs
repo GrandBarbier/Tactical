@@ -25,13 +25,13 @@ public class MovementsTilemap : MonoBehaviour
     
     [TagSelector]
     public string TagFilterEnemy = "";
-
     
     public int movePoints;
     
     public List<Vector3Int> walkable;
     
     public List<GameObject> allShips;
+    public List<GameObject> allyShips;
     public List<Vector3Int> allShipsPos;
 
 
@@ -39,14 +39,16 @@ public class MovementsTilemap : MonoBehaviour
 
     private void Start()
     {
+        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+       
         ActualiseShipPos();
     }
 
     void Update()
     {
-        
+        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
@@ -67,19 +69,23 @@ public class MovementsTilemap : MonoBehaviour
                 if (hit.collider.tag == TagFilterAlly && selected == false)
                 {
                     ResetTilemap();
-                    startTile = walkableTilemap.WorldToCell(clickPos);
-                    walkable = GetWalkableTiles(movePoints, startTile);
-                    ColorWalkable();
                     ship = hit.collider.gameObject;
                     selected = true;
+                    if (ship.GetComponent<Stats>().moved == false)
+                    {
+                        startTile = walkableTilemap.WorldToCell(clickPos);
+                        walkable = GetWalkableTiles(movePoints, startTile);
+                        ColorWalkable();
+                    }
                 }
-                else if (hit.collider.tag == "walkable" && selected == true)
+                else if (hit.collider.tag == "walkable" && selected == true && ship.GetComponent<Stats>().moved == false)
                 {
                     for (int i = 0; i < walkable.Count; i++)
                     {
                         if (clickPos == walkable[i])
                         {
                             ship.transform.position = walkableTilemap.GetCellCenterWorld(clickPos);
+                            ship.GetComponent<Stats>().moved = true;
                         }
                     }
                     selected = false;

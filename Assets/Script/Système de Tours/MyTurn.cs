@@ -12,7 +12,10 @@
         }
         public override void OnStateEnter()
         {
-        
+            for (int i = 0; i < player.gameObject.GetComponent<MovementsTilemap>().allyShips.Count; i++)
+            {
+                player.gameObject.GetComponent<MovementsTilemap>().allShips[i].GetComponent<Stats>().moved = false;
+            }
         }
     
         public override void OnStateExit()

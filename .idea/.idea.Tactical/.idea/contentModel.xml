@@ -29,6 +29,10 @@
             <e p="TagSelectorAttribute.cs" t="Include" />
             <e p="TagSelectorPropertyDrawer.cs" t="Include" />
           </e>
+          <e p="ScriptableList.cs" t="Include" />
+          <e p="Ships" t="Include">
+            <e p="Stats.cs" t="Include" />
+          </e>
           <e p="StatVaisseau.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
