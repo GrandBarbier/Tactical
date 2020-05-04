@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7230168295338401237}
   - component: {fileID: 7230168295338401238}
+  - component: {fileID: 7230168295338401236}
   m_Layer: 0
-  m_Name: Vaisseau
+  m_Name: New Sprite (3)
   m_TagString: player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7230168295338401236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230168295338401239}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af95f0a9f16217488a16df04546e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10

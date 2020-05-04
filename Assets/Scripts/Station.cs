@@ -20,7 +20,7 @@ public class Station : MonoBehaviour
         
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
 
-        if (hit.collider != null && Input.GetMouseButtonDown(0))
+        if (hit.collider.tag == "StationP1" && Input.GetMouseButtonDown(0))
         {
             stationUI.SetActive(true);
         }
@@ -30,14 +30,9 @@ public class Station : MonoBehaviour
 
     public void SpawnCroiseur()
     {
-        if (argent > 2000)
-        {
+        
             Instantiate(vaisseau, new Vector3(0, 0, 0), Quaternion.identity);
-        }
-        else
-        {
-            Debug.Log("pas d'argent");
-        }
+        
     }
 
     public void Exit()
