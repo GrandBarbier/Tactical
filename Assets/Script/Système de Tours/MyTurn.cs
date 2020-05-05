@@ -12,15 +12,18 @@
         }
         public override void OnStateEnter()
         {
-            for (int i = 0; i < player.gameObject.GetComponent<MovementsTilemap>().allyShips.Count; i++)
+            for (int i = 0; i < player.gameObject.GetComponent<Selection>().allyShips.Count; i++)
             {
-                player.gameObject.GetComponent<MovementsTilemap>().allShips[i].GetComponent<Stats>().moved = false;
+                player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().moved = false;
             }
+
+            player.selectable = true;
         }
     
         public override void OnStateExit()
         {
             player.movementsTilemap.enabled = false;
+            player.selectable = false;
         }
     }
 }

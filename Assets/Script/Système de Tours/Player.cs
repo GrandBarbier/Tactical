@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     public State currentState;
 
     public MovementsTilemap movementsTilemap;
-    
 
+    public bool selectable;
 
 
     private void Start()

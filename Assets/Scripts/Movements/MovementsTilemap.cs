@@ -14,15 +14,14 @@ public class MovementsTilemap : MonoBehaviour
     public Tilemap obstacleTilemap;
     
     public Vector3Int startTile;
-
-    public GameObject ship;
-
+    
     public TileBase selectedTile;
     public TileBase unselectedTile;
     
     public LayerMask mask;
 
     public GameObject destination;
+    
     
     [TagSelector]
     public string TagFilterAlly = "";
@@ -35,73 +34,56 @@ public class MovementsTilemap : MonoBehaviour
     public List<Vector3Int> walkable;
     
     public List<GameObject> allShips;
-    public List<GameObject> allyShips;
     public List<Vector3Int> allShipsPos;
     
-    public bool selected;
+    public Selection selection;
+
+    public bool moving;
 
     private void Start()
     {
-        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
        
         ActualiseShipPos();
+
+        selection = gameObject.GetComponent<Selection>();
     }
 
     void Update()
     {
-        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
-        
-        if (Input.GetMouseButtonDown(0))
+
+        if (moving && Input.GetMouseButton(0))
         {
-            for (int i = 0; i < allShips.Count; i++)
-            {
-                Destroy(allShips[i].GetComponent<BoxCollider2D>());
-                allShips[i].AddComponent<BoxCollider2D>();
-            }
-            
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-            if (hit.collider != null)
+            if (hit.collider.tag == "walkable" && moving == true && selection.ship.GetComponent<Stats>().moved == false)
             {
-                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3Int clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
-                if (hit.collider.tag == TagFilterAlly && selected == false)
+                for (int i = 0; i < walkable.Count; i++)
                 {
-                    ResetTilemap();
-                    ship = hit.collider.gameObject;
-                    selected = true;
-                    if (ship.GetComponent<Stats>().moved == false)
+                    if (clickPos == walkable[i])
                     {
-                        startTile = walkableTilemap.WorldToCell(clickPos);
-                        walkable = GetWalkableTiles(movePoints, startTile);
-                        ColorWalkable();
+                        selection.ship.GetComponent<AIDestinationSetter>().target = Instantiate(destination, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity).transform;
+                        Destroy(GameObject.FindGameObjectWithTag("Destination"), 0.2f);
+                        selection.ship.GetComponent<Stats>().moved = true;
+                        moving = false;
                     }
                 }
-                else if (hit.collider.tag == "walkable" && selected == true && ship.GetComponent<Stats>().moved == false)
-                {
-                    for (int i = 0; i < walkable.Count; i++)
-                    {
-                        if (clickPos == walkable[i])
-                        {
-                            ship.GetComponent<AIDestinationSetter>().target = Instantiate(destination, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity).transform;
-                            Destroy(GameObject.FindGameObjectWithTag("Destination"), 0.2f);
-                            ship.GetComponent<Stats>().moved = true;
-                        }
-                    }
-                    selected = false;
-                    ResetTilemap();
-                    ship = null;
-                }
-                else if (selected == true)
-                {
-                    selected = false;
-                    ResetTilemap();
-                    ship = null;
-                }
+
+                selection.selected = false;
+                ResetTilemap();
+                selection.ship = null; 
+            }
+            else if (selection.selected == true)
+            {
+                selection.selected = false;
+                ResetTilemap();
+                selection.ship = null;
+                moving = false;
             }
         }
     }
@@ -193,6 +175,23 @@ public class MovementsTilemap : MonoBehaviour
         {
             Vector3Int pos = Vector3Int.FloorToInt(allShips[i].transform.position);
             allShipsPos.Add(pos);
+        }
+    }
+
+
+    public void Moving()
+    {
+        if ( selection.selected == true && moving == false)
+        {
+            ResetTilemap();
+            if (selection.ship.GetComponent<Stats>().moved == false)
+            {
+                startTile = walkableTilemap.WorldToCell(selection.ship.transform.position);
+                walkable = GetWalkableTiles(movePoints, startTile);
+                ColorWalkable();
+                moving = true;
+                selection.choicePanel.SetActive(false);
+            }
         }
     }
 }

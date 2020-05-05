@@ -6,4 +6,6 @@ public class Stats : MonoBehaviour
 {
     public ScriptableObject shipStats;
     public bool moved = false;
+    public bool attack = false;
+    public bool selectable;
 }

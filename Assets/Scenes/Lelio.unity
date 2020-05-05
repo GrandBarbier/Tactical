@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 560938924}
   - component: {fileID: 560938925}
   - component: {fileID: 560938926}
+  - component: {fileID: 560938927}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -583,6 +584,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementsTilemap: {fileID: 0}
+  selectable: 0
+--- !u!114 &560938927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560938923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac893c5209b45a4a94378e4459d4c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagFilterAlly: player1
+  TagFilterEnemy: player2
+  mask:
+    serializedVersion: 2
+    m_Bits: 1024
+  allShips: []
+  allyShips: []
+  ship: {fileID: 0}
+  selected: 0
 --- !u!1 &562687634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1091,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipStats: {fileID: 0}
+  moving: 0
   moved: 0
+  attack: 0
+  selectable: 0
 --- !u!50 &879395135
 Rigidbody2D:
   serializedVersion: 4
@@ -1294,7 +1320,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipStats: {fileID: 0}
+  moving: 0
   moved: 0
+  attack: 0
+  selectable: 0
 --- !u!50 &929819950
 Rigidbody2D:
   serializedVersion: 4
@@ -3150,6 +3179,7 @@ GameObject:
   - component: {fileID: 1038284533}
   - component: {fileID: 1038284534}
   - component: {fileID: 1038284535}
+  - component: {fileID: 1038284536}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -3215,6 +3245,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementsTilemap: {fileID: 0}
+  selectable: 0
+--- !u!114 &1038284536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038284532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac893c5209b45a4a94378e4459d4c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagFilterAlly: player2
+  TagFilterEnemy: player1
+  mask:
+    serializedVersion: 2
+    m_Bits: 1024
+  allShips: []
+  allyShips: []
+  ship: {fileID: 0}
+  selected: 0
 --- !u!1 &1050163093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,7 +3382,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipStats: {fileID: 0}
+  moving: 0
   moved: 0
+  attack: 0
+  selectable: 0
 --- !u!114 &1331246543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4467,7 +4522,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipStats: {fileID: 0}
+  moving: 0
   moved: 0
+  attack: 0
+  selectable: 0
 --- !u!114 &1958648829
 MonoBehaviour:
   m_ObjectHideFlags: 0
