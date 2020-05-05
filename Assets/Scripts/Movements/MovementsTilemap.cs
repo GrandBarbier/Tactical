@@ -78,7 +78,7 @@ public class MovementsTilemap : MonoBehaviour
                 ResetTilemap();
                 selection.ship = null; 
             }
-            else if (selection.selected == true)
+            else if(selection.selected)
             {
                 selection.selected = false;
                 ResetTilemap();

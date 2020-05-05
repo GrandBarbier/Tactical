@@ -236,6 +236,7 @@
           <e p="Ships" t="Include">
             <e p="Stats.cs" t="Include" />
           </e>
+          <e p="Station.cs" t="Include" />
           <e p="StatVaisseau.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

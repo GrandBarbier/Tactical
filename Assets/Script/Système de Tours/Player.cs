@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public MovementsTilemap movementsTilemap;
 
     public bool selectable;
+    public bool myTurn;
 
 
     private void Start()

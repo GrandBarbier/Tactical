@@ -51,9 +51,9 @@ public class Selection : MonoBehaviour
                 selected = true;
                 choicePanel.SetActive(true);
             }
-            else if (hit.collider.tag != "UI")
+            else if (hit.collider.tag != "UI" && selected)
             {
-                ship = null;
+                //ship = null;
                 selected = false;
                 choicePanel.SetActive(false);
             }
@@ -61,7 +61,7 @@ public class Selection : MonoBehaviour
 
         if (ship != null)
         {
-            Vector3 rectTransform = new Vector3(ship.transform.position.x + 1, ship.transform.position.y + 1);
+            Vector3 rectTransform = new Vector3(ship.transform.position.x + 1, ship.transform.position.y + 1 , 0);
             choicePanel.transform.position = rectTransform;
         }
     }

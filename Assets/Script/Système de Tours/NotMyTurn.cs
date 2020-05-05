@@ -11,7 +11,7 @@
         }
         public override void OnStateEnter()
         {
-           
+            player.myTurn = false;
         }
     
         public override void OnStateExit()

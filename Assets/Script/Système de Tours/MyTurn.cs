@@ -12,6 +12,8 @@
         }
         public override void OnStateEnter()
         {
+            player.myTurn = true;
+                
             for (int i = 0; i < player.gameObject.GetComponent<Selection>().allyShips.Count; i++)
             {
                 player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().moved = false;
