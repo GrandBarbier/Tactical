@@ -41,7 +41,7 @@ public class MovementsTilemap : MonoBehaviour
 
     private void Start()
     {
-        allShips = GetComponent<Selection>().allShips;
+       
         ActualiseShipPos();
 
         selection = gameObject.GetComponent<Selection>();
@@ -49,8 +49,9 @@ public class MovementsTilemap : MonoBehaviour
 
     void Update()
     {
+        allShips = selection.allShips;
         ActualiseShipPos();
-
+        
         if (moving && Input.GetMouseButton(0))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -165,6 +166,7 @@ public class MovementsTilemap : MonoBehaviour
     void ActualiseShipPos()
     {
         allShipsPos.Clear();
+        
         
         for (int i = 0; i < allShips.Count; i++)
         {

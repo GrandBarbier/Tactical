@@ -34,6 +34,9 @@ public class AttackTilemap : MonoBehaviour
     
     public List<GameObject> enemyShips;
     public List<Vector3Int> enemyShipPos;
+
+    public List<GameObject> allyShips;
+    public List<Vector3Int> allyshipPos;
     
     public Selection selection;
 
@@ -54,6 +57,8 @@ public class AttackTilemap : MonoBehaviour
     {
         enemyShips.Clear();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+        allShips = selection.allShips;
+        allyShips = selection.allyShips;
         
         ActualiseShipPos();
 
@@ -139,9 +144,9 @@ public class AttackTilemap : MonoBehaviour
 
     public bool TargetableCheck(Vector3Int tile)
     {
-        for (int i = 0; i < allShipsPos.Count; i++)
+        for (int i = 0; i < allyshipPos.Count; i++)
         {
-            if (tile == allShipsPos[i])
+            if (tile == allyshipPos[i])
             {
                 return false;
             }
@@ -177,6 +182,7 @@ public class AttackTilemap : MonoBehaviour
     {
         allShipsPos.Clear();
         enemyShipPos.Clear();
+        allyshipPos.Clear();
         
         for (int i = 0; i < allShips.Count; i++)
         {
@@ -188,6 +194,12 @@ public class AttackTilemap : MonoBehaviour
         {
             Vector3Int pos = Vector3Int.FloorToInt(enemyShips[i].transform.position);
             enemyShipPos.Add(pos);
+        }
+        
+        for (int i = 0; i < allyShips.Count; i++)
+        {
+            Vector3Int pos = Vector3Int.FloorToInt(allyShips[i].transform.position);
+            allyshipPos.Add(pos);
         }
     }
 
