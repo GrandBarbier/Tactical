@@ -149,7 +149,7 @@ public class MovementsTilemap : MonoBehaviour
         }
     }
     
-    void ResetTilemap()
+    public void ResetTilemap()
     {
         foreach (var tile in walkable)
         {

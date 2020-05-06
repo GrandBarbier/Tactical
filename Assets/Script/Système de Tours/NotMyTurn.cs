@@ -17,6 +17,7 @@
         public override void OnStateExit()
         {
             player.movementsTilemap.enabled = true;
+            player.attackTilemp.enabled = true;
         }
     }
 }

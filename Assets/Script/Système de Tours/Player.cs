@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public State currentState;
 
     public MovementsTilemap movementsTilemap;
+    public AttackTilemap attackTilemp;
 
     public bool selectable;
     public bool myTurn;
@@ -18,7 +19,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         SetState(new NotMyTurn(this));
-        movementsTilemap = GetComponent<MovementsTilemap>(); 
+        movementsTilemap = GetComponent<MovementsTilemap>();
+        attackTilemp = GetComponent<AttackTilemap>();
     }
     
     public void SetState(State state)

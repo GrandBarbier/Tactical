@@ -18,9 +18,6 @@ public class AttackTilemap : MonoBehaviour
     public TileBase unselectedTile;
     
     public LayerMask mask;
-
-    public GameObject destination;
-    
     
     [TagSelector]
     public string TagFilterAlly = "";
@@ -28,22 +25,26 @@ public class AttackTilemap : MonoBehaviour
     [TagSelector]
     public string TagFilterEnemy = "";
     
-    public int movePoints;
+    public int rangePoints;
     
-    public List<Vector3Int> walkable;
+    public List<Vector3Int> targetable;
     
     public List<GameObject> allShips;
     public List<Vector3Int> allShipsPos;
     
+    public List<GameObject> enemyShips;
+    public List<Vector3Int> enemyShipPos;
+    
     public Selection selection;
 
-    public bool moving;
+    public bool attacking;
+
+    public int damage;
 
     private void Start()
     {
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
-       
+
         ActualiseShipPos();
 
         selection = gameObject.GetComponent<Selection>();
@@ -52,24 +53,30 @@ public class AttackTilemap : MonoBehaviour
     void Update()
     {
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+
+        enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
 
-        if (moving && Input.GetMouseButton(0))
+        if (attacking && Input.GetMouseButton(0))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-            if (hit.collider.tag == "walkable" && moving == true && selection.ship.GetComponent<Stats>().moved == false)
+            if (hit.collider.tag == TagFilterEnemy && attacking == true && selection.ship.GetComponent<Stats>().attacked == false)
             {
-                for (int i = 0; i < walkable.Count; i++)
+                for (int i = 0; i < targetable.Count; i++)
                 {
-                    if (clickPos == walkable[i])
+                    if (clickPos == targetable[i])
                     {
-                        selection.ship.GetComponent<AIDestinationSetter>().target = Instantiate(destination, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity).transform;
-                        Destroy(GameObject.FindGameObjectWithTag("Destination"), 0.2f);
-                        selection.ship.GetComponent<Stats>().moved = true;
-                        moving = false;
+                        for (int j = 0; j < enemyShipPos.Count; j++)
+                        {
+                            if (clickPos == enemyShipPos[j])
+                            {
+                                hit.collider.gameObject.GetComponent<Stats>().health -= damage;
+                                attacking = false;
+                                selection.ship.GetComponent<Stats>().attacked = true;
+                            }
+                        }
                     }
                 }
 
@@ -82,7 +89,7 @@ public class AttackTilemap : MonoBehaviour
                 selection.selected = false;
                 ResetTilemap();
                 selection.ship = null;
-                moving = false;
+                attacking = false;
             }
         }
     }
@@ -121,7 +128,7 @@ public class AttackTilemap : MonoBehaviour
 
         foreach (var vec in testTiles)
         {
-             if (WalkableCheck(vec))
+             if (TargetableCheck(vec))
              {
                 tiles.Add(vec);
              }
@@ -130,7 +137,7 @@ public class AttackTilemap : MonoBehaviour
     }
 
 
-    public bool WalkableCheck(Vector3Int tile)
+    public bool TargetableCheck(Vector3Int tile)
     {
         for (int i = 0; i < allShipsPos.Count; i++)
         {
@@ -149,18 +156,18 @@ public class AttackTilemap : MonoBehaviour
         }
     }
     
-    void ResetTilemap()
+    public void ResetTilemap()
     {
-        foreach (var tile in walkable)
+        foreach (var tile in targetable)
         {
             walkableTilemap.SetTile(tile,unselectedTile);
         }
-        walkable.Clear();
+        targetable.Clear();
     }
     
     void ColorWalkable()
     {
-        foreach (var tile in walkable)
+        foreach (var tile in targetable)
         {
             walkableTilemap.SetTile(tile,selectedTile);
         }
@@ -169,26 +176,33 @@ public class AttackTilemap : MonoBehaviour
     void ActualiseShipPos()
     {
         allShipsPos.Clear();
+        enemyShipPos.Clear();
         
         for (int i = 0; i < allShips.Count; i++)
         {
             Vector3Int pos = Vector3Int.FloorToInt(allShips[i].transform.position);
             allShipsPos.Add(pos);
         }
+        
+        for (int i = 0; i < enemyShips.Count; i++)
+        {
+            Vector3Int pos = Vector3Int.FloorToInt(enemyShips[i].transform.position);
+            enemyShipPos.Add(pos);
+        }
     }
 
 
-    public void Moving()
+    public void Attacking()
     {
-        if ( selection.selected == true && moving == false)
+        if ( selection.selected == true && attacking == false)
         {
             ResetTilemap();
-            if (selection.ship.GetComponent<Stats>().moved == false)
+            if (selection.ship.GetComponent<Stats>().attacked == false)
             {
                 startTile = walkableTilemap.WorldToCell(selection.ship.transform.position);
-                walkable = GetWalkableTiles(movePoints, startTile);
+                targetable = GetWalkableTiles(rangePoints, startTile);
                 ColorWalkable();
-                moving = true;
+                attacking = true;
                 selection.choicePanel.SetActive(false);
             }
         }

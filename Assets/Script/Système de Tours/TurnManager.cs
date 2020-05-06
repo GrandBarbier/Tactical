@@ -40,6 +40,9 @@ namespace Script.Système_de_Tours
 
         public void NextTurn()
         {
+            players[actualTurn].GetComponent<MovementsTilemap>().ResetTilemap();
+            players[actualTurn].GetComponent<AttackTilemap>().ResetTilemap();
+            players[actualTurn].GetComponent<Selection>().selected = false;
             players[actualTurn].GetComponent<Player>().ItsNotMyTurn();
             actualTurn ++;
             if (actualTurn > players.Count - 1)

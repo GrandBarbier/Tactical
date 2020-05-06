@@ -17,6 +17,7 @@
             for (int i = 0; i < player.gameObject.GetComponent<Selection>().allyShips.Count; i++)
             {
                 player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().moved = false;
+                player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().attacked = false;
             }
 
             player.selectable = true;
@@ -25,6 +26,7 @@
         public override void OnStateExit()
         {
             player.movementsTilemap.enabled = false;
+            player.attackTilemp.enabled = false;
             player.selectable = false;
         }
     }
