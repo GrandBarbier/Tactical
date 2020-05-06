@@ -41,9 +41,7 @@ public class MovementsTilemap : MonoBehaviour
 
     private void Start()
     {
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
-       
+        allShips = GetComponent<Selection>().allShips;
         ActualiseShipPos();
 
         selection = gameObject.GetComponent<Selection>();
@@ -51,8 +49,6 @@ public class MovementsTilemap : MonoBehaviour
 
     void Update()
     {
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         ActualiseShipPos();
 
         if (moving && Input.GetMouseButton(0))

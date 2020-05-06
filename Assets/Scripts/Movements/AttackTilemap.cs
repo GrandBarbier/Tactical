@@ -43,7 +43,7 @@ public class AttackTilemap : MonoBehaviour
 
     private void Start()
     {
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
+        allShips = GetComponent<Selection>().allShips;
 
         ActualiseShipPos();
 
@@ -52,9 +52,9 @@ public class AttackTilemap : MonoBehaviour
 
     void Update()
     {
-        allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
-
+        enemyShips.Clear();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+        
         ActualiseShipPos();
 
         if (attacking && Input.GetMouseButton(0))

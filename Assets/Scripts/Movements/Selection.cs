@@ -16,6 +16,7 @@ public class Selection : MonoBehaviour
     public LayerMask mask;
     
     public List<GameObject> allShips;
+    
     public List<GameObject> allyShips;
     
     public GameObject ship;
@@ -31,6 +32,8 @@ public class Selection : MonoBehaviour
 
     void Update()
     {
+        allShips.Clear();
+        allyShips.Clear();
         allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();

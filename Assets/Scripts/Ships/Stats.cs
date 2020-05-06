@@ -12,6 +12,15 @@ public class Stats : MonoBehaviour
     public int health;
     public Text hpText;
 
+    public GameObject player1;
+    public GameObject player2;
+    
+    private void Start()
+    {
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
+    }
+
     private void Update()
     {
         hpText.transform.position = transform.position;
@@ -20,9 +29,8 @@ public class Stats : MonoBehaviour
 
         if (health <= 0)
         {
-           gameObject.SetActive(false);
-           hpText.gameObject.SetActive(false);
-           gameObject.transform.position = new Vector3(1000,1000);
+            Destroy(hpText.gameObject);
+            Destroy(gameObject);
         }
     }
 }
