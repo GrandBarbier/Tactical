@@ -69,31 +69,25 @@ public class AttackTilemap : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
             if (hit.collider.tag == TagFilterEnemy && attacking == true && selection.ship.GetComponent<Stats>().attacked == false)
             {
-                for (int i = 0; i < targetable.Count; i++)
+                for (int i = 0; i < enemyShipPos.Count; i++)
                 {
-                    if (clickPos == targetable[i])
+                    if (clickPos == enemyShipPos[i])
                     {
-                        for (int j = 0; j < enemyShipPos.Count; j++)
-                        {
-                            if (clickPos == enemyShipPos[j])
-                            {
-                                hit.collider.gameObject.GetComponent<Stats>().health -= damage;
-                                attacking = false;
-                                selection.ship.GetComponent<Stats>().attacked = true;
-                            }
-                        }
+                        hit.collider.gameObject.GetComponent<Stats>().health -= damage;
+                        attacking = false;
+                        selection.ship.GetComponent<Stats>().attacked = true;
+                        break;
                     }
                 }
 
-                selection.selected = false;
+                selection.deselected = true;
                 ResetTilemap();
-                selection.ship = null; 
+                attacking = false;
             }
             else if(selection.selected)
             {
-                selection.selected = false;
+                selection.deselected = true;
                 ResetTilemap();
-                selection.ship = null;
                 attacking = false;
             }
         }

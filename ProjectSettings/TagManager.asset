@@ -9,6 +9,7 @@ TagManager:
   - walkable
   - StationP1
   - Destination
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Chioce Panel
+    uniqueID: 3862582111
     locked: 0

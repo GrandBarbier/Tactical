@@ -1151,7 +1151,7 @@ MonoBehaviour:
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 2048
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
   TagFilterAlly: player1
@@ -1197,7 +1197,7 @@ MonoBehaviour:
     m_Bits: 1024
   uiMask:
     serializedVersion: 2
-    m_Bits: 1056
+    m_Bits: 32
   allShips: []
   allyShips: []
   ship: {fileID: 0}
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
   TagFilterAlly: player1
   TagFilterEnemy: player2
   rangePoints: 3
@@ -4555,7 +4555,7 @@ MonoBehaviour:
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 2048
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
   TagFilterAlly: player2
@@ -4601,7 +4601,7 @@ MonoBehaviour:
     m_Bits: 1024
   uiMask:
     serializedVersion: 2
-    m_Bits: 1056
+    m_Bits: 32
   allShips: []
   allyShips: []
   ship: {fileID: 0}
@@ -4628,7 +4628,7 @@ MonoBehaviour:
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
   TagFilterAlly: player2
   TagFilterEnemy: player1
   rangePoints: 2
@@ -5293,8 +5293,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -432385185
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1524100860
 RectTransform:

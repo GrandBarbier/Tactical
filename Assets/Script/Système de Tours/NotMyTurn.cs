@@ -12,6 +12,9 @@
         public override void OnStateEnter()
         {
             player.myTurn = false;
+            player.GetComponent<MovementsTilemap>().moving = false;
+            player.GetComponent<Selection>().deselected = true;
+            player.GetComponent<AttackTilemap>().attacking = false;
         }
     
         public override void OnStateExit()

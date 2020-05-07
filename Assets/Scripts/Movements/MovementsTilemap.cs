@@ -57,7 +57,7 @@ public class MovementsTilemap : MonoBehaviour
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-            if (hit.collider.tag == "walkable" && moving == true && selection.ship.GetComponent<Stats>().moved == false)
+            if (hit.collider != null && moving == true && selection.ship.GetComponent<Stats>().moved == false)
             {
                 for (int i = 0; i < walkable.Count; i++)
                 {
@@ -67,18 +67,19 @@ public class MovementsTilemap : MonoBehaviour
                         Destroy(GameObject.FindGameObjectWithTag("Destination"), 0.2f);
                         selection.ship.GetComponent<Stats>().moved = true;
                         moving = false;
+                        selection.deselected = true;
+                        break;
                     }
                 }
-
-                selection.selected = false;
+                
+                selection.deselected = true;
                 ResetTilemap();
-                selection.ship = null; 
+                moving = false;
             }
             else if(selection.selected)
             {
-                selection.selected = false;
+                selection.deselected = true;
                 ResetTilemap();
-                selection.ship = null;
                 moving = false;
             }
         }

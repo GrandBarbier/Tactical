@@ -53,6 +53,7 @@ public class Selection : MonoBehaviour
             deselected = false;
             choicePanel.SetActive(false);
             gameObject.GetComponent<MovementsTilemap>().moving = false;
+            ship = null;
         }
 
         
