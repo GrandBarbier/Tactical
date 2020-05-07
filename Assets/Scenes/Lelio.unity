@@ -1194,12 +1194,17 @@ MonoBehaviour:
   TagFilterEnemy: player2
   mask:
     serializedVersion: 2
-    m_Bits: 3104
+    m_Bits: 1024
+  uiMask:
+    serializedVersion: 2
+    m_Bits: 1056
   allShips: []
   allyShips: []
   ship: {fileID: 0}
   choicePanel: {fileID: 29724143}
   selected: 0
+  deselected: 0
+  ui: 0
 --- !u!114 &560938928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,6 +1233,8 @@ MonoBehaviour:
   allShipsPos: []
   enemyShips: []
   enemyShipPos: []
+  allyShips: []
+  allyshipPos: []
   selection: {fileID: 0}
   attacking: 0
   damage: 2
@@ -4591,12 +4598,17 @@ MonoBehaviour:
   TagFilterEnemy: player1
   mask:
     serializedVersion: 2
-    m_Bits: 3104
+    m_Bits: 1024
+  uiMask:
+    serializedVersion: 2
+    m_Bits: 1056
   allShips: []
   allyShips: []
   ship: {fileID: 0}
   choicePanel: {fileID: 1192224383}
   selected: 0
+  deselected: 0
+  ui: 0
 --- !u!114 &1038284537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4625,6 +4637,8 @@ MonoBehaviour:
   allShipsPos: []
   enemyShips: []
   enemyShipPos: []
+  allyShips: []
+  allyshipPos: []
   selection: {fileID: 0}
   attacking: 0
   damage: 1
