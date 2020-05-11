@@ -50,7 +50,11 @@ public class MovementsTilemap : MonoBehaviour
     void Update()
     {
         allShips = selection.allShips;
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP1")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP2")).ToList();
         ActualiseShipPos();
+        
         
         if (moving && Input.GetMouseButton(0))
         {

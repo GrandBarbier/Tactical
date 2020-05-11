@@ -10,6 +10,8 @@ TagManager:
   - StationP1
   - Destination
   - UI
+  - StationP2
+  - Station
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - StationP1
+  - Station
   - Obstacles
   - Player
   - Walkable

@@ -15,6 +15,8 @@ public class Selection : MonoBehaviour
     [TagSelector]
     public string TagFilterEnemy = "";
 
+
+
     public LayerMask mask;
     public LayerMask uiMask;
     
@@ -45,7 +47,7 @@ public class Selection : MonoBehaviour
         allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
-
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP1")).ToList();
 
         if (deselected)
         {

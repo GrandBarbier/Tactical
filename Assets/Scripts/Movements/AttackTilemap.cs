@@ -18,13 +18,20 @@ public class AttackTilemap : MonoBehaviour
     public TileBase unselectedTile;
     
     public LayerMask mask;
+    public LayerMask maskS;
     
     [TagSelector]
     public string TagFilterAlly = "";
     
     [TagSelector]
     public string TagFilterEnemy = "";
-    
+
+    [TagSelector]
+    public string TagStationAlly = "";
+
+    [TagSelector]
+    public string TagStationEnnemy = "";
+
     public int rangePoints;
     
     public List<Vector3Int> targetable;
@@ -57,8 +64,11 @@ public class AttackTilemap : MonoBehaviour
     {
         enemyShips.Clear();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+        enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();
+        enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagStationEnnemy)).ToList();
         allShips = selection.allShips;
         allyShips = selection.allyShips;
+        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagStationAlly)).ToList();
         
         ActualiseShipPos();
 
@@ -69,6 +79,7 @@ public class AttackTilemap : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
             if (hit.collider.tag == TagFilterEnemy && attacking == true && selection.ship.GetComponent<Stats>().attacked == false)
             {
+                
                 for (int i = 0; i < enemyShipPos.Count; i++)
                 {
                     if (clickPos == enemyShipPos[i])
@@ -84,12 +95,29 @@ public class AttackTilemap : MonoBehaviour
                 ResetTilemap();
                 attacking = false;
             }
+            RaycastHit2D hit2 = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, maskS);
+            if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == "Station") && attacking == true && selection.ship.GetComponent<Stats>().attacked == false)
+            {
+                
+                hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(damage);
+                selection.ship.GetComponent<Stats>().attacked = true;
+                if (hit2.collider.gameObject.GetComponent<StationState>().health <= 0)
+                {
+                    hit2.collider.gameObject.GetComponent<StationState>().Capture(gameObject);
+                    
+                }
+                selection.deselected = true;
+                ResetTilemap();
+                attacking = false;
+
+            }
             else if(selection.selected)
             {
                 selection.deselected = true;
                 ResetTilemap();
                 attacking = false;
             }
+            
         }
     }
     
