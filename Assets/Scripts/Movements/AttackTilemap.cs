@@ -96,13 +96,14 @@ public class AttackTilemap : MonoBehaviour
                         }
                     }
                 }
-                selection.deselected = true;
-                ResetTilemap();
-                attacking = false;
+                // selection.deselected = true;
+                // ResetTilemap();
+                // attacking = false;
                 
             }
-            else if (hit2.collider != null)
+            if (hit2.collider != null)
             {
+                Debug.Log(hit2.collider);
                 if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
                 {
                 
@@ -113,16 +114,14 @@ public class AttackTilemap : MonoBehaviour
                         hit2.collider.gameObject.GetComponent<StationState>().Capture(gameObject);
                     }
                 }
-                selection.deselected = true;
-                ResetTilemap();
-                attacking = false;
+                // selection.deselected = true;
+                // ResetTilemap();
+                // attacking = false;
             } 
-            else
-            {
-                selection.deselected = true;
-                ResetTilemap();
-                attacking = false;
-            }
+
+            selection.deselected = true; 
+            ResetTilemap(); 
+            attacking = false;
         }
     }
     

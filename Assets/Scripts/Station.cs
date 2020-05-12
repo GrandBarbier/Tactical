@@ -45,14 +45,14 @@ public class Station : MonoBehaviour
 
     public List<GameObject> allyShips;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         stationUI.SetActive(false);
         selection = gameObject.GetComponent<Selection>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -79,7 +79,7 @@ public class Station : MonoBehaviour
             if (spawn == false)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-                if (hit != null)
+                if (hit.collider != null)
                 {
                     if(hit.collider.tag ==TagFilterAlly)
                     {
@@ -95,8 +95,14 @@ public class Station : MonoBehaviour
                 {
                     if (clickPos == selectable[i])
                     {
-                        SpawnCroiseur();
-                        break;
+                        for (int j = 0; j < allShipsPos.Count; j++)
+                        {
+                            if (clickPos != allShipsPos[j])
+                            {
+                                SpawnCroiseur();
+                                break; 
+                            }
+                        }
                     }
                 }
             }
