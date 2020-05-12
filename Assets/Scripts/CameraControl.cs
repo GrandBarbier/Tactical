@@ -1,15 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public float zoomSize;
+    public float distance;
+    public float distanceMax;
+    public float distanceMin;
+    
+    private float rightBound;
+    private float leftBound;
+    private float topBound;
+    private float bottomBound;
+    private Vector3 pos;
+    private Transform target;
+    private SpriteRenderer spriteBounds;
     
     //recuperation de la variable size de la camera qui gere le niveau de zoom 
     void Start()
     {
-        zoomSize = 5;
+        distance = 5;
+
+        float vertExtent = Camera.main.orthographicSize;  
+        float horzExtent = vertExtent * Screen.width / Screen.height;
+        spriteBounds = GameObject.Find("BackgroundPs").GetComponentInChildren<SpriteRenderer>();
+        target = GameObject.FindWithTag("MainCamera").transform;
+        leftBound = (float)(horzExtent - spriteBounds.sprite.bounds.size.x / 2.0f);
+        rightBound = (float)(spriteBounds.sprite.bounds.size.x / 2.0f - horzExtent);
+        bottomBound = (float)(vertExtent - spriteBounds.sprite.bounds.size.y / 2.0f);
+        topBound = (float)(spriteBounds.sprite.bounds.size.y  / 2.0f - vertExtent);
     }
 
     void Update()
@@ -33,15 +50,19 @@ public class CameraControl : MonoBehaviour
             transform.position += new Vector3(0.1f, 0,0);
         }
         //gestion du niveau de zoom avec la molette de souris
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && distance < distanceMax)
         {
-            zoomSize += 0.2f;
+            distance += 0.2f;
         }        
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0  && distance > distanceMin)
         {
-            zoomSize -= 0.2f;
+            distance -= 0.2f;
         }
-        GetComponent<Camera>().orthographicSize = zoomSize;
+        GetComponent<Camera>().orthographicSize = distance;
 
+        var pos = new Vector3(target.position.x, target.position.y, transform.position.z);
+        pos.x = Mathf.Clamp(pos.x, leftBound, rightBound);
+        pos.y = Mathf.Clamp(pos.y, bottomBound, topBound);
+        transform.position = pos;
     }
 }

@@ -584,6 +584,7 @@ RectTransform:
   - {fileID: 195089933}
   - {fileID: 1957986686}
   - {fileID: 80184721}
+  - {fileID: 788597665}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -716,7 +717,6 @@ MonoBehaviour:
   walkableTilemap: {fileID: 942614340}
   obstacleTilemap: {fileID: 1673743872}
   startTile: {x: 0, y: 0, z: 0}
-  ship: {fileID: 0}
   selectedTile: {fileID: 11400000, guid: b1668cc224e6b2640a7a3170732cc1e1, type: 2}
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
@@ -724,14 +724,12 @@ MonoBehaviour:
     m_Bits: 3072
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
-  TagFilterAlly: player1
-  TagFilterEnemy: player2
   movePoints: 3
   walkable: []
   allShips: []
-  allyShips: []
   allShipsPos: []
-  selected: 0
+  selection: {fileID: 0}
+  moving: 0
 --- !u!114 &560938926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +743,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementsTilemap: {fileID: 0}
+  attackTilemp: {fileID: 0}
+  station: {fileID: 0}
+  selectable: 0
+  myTurn: 0
 --- !u!1 &562687634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,10 +1105,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationUI: {fileID: 121108087}
-  argent: 0
-  text: {fileID: 0}
   vaisseau: {fileID: 8591613995113724105, guid: b924e36d45fa737419ed06738e2d804e,
     type: 3}
+  walkableTilemap: {fileID: 0}
+  obstacleTilemap: {fileID: 0}
+  startTile: {x: 0, y: 0, z: 0}
+  selectedTile: {fileID: 0}
+  unselectedTile: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  TagFilterAlly: 
+  selectable: []
+  allShips: []
+  allShipsPos: []
+  chosen: {fileID: 0}
+  selection: {fileID: 0}
+  spawn: 0
+  turn: 0
+  usable: 0
+  spawned: 0
+  clickPos: {x: 0, y: 0, z: 0}
+  allyStation: []
+  limit: 0
+  baseCount: 0
+  allyShips: []
+  actualShip: {fileID: 0}
+--- !u!1 &788597664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788597665}
+  - component: {fileID: 788597666}
+  m_Layer: 0
+  m_Name: BackgroundPs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788597665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788597664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 24, z: -4047.887}
+  m_LocalScale: {x: 272.7511, y: 345.27396, z: 166.41313}
+  m_Children: []
+  m_Father: {fileID: 316998677}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &788597666
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788597664}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: a2b2d3a758512d14cbe9491e4b173e70, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.04, y: 6.77}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &879395127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,8 +1415,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipStats: {fileID: 0}
+  ship: {fileID: 0}
   moved: 0
+  attacked: 0
+  health: 0
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
+  hpText: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!50 &879395135
 Rigidbody2D:
   serializedVersion: 4
@@ -1536,8 +1650,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipStats: {fileID: 0}
+  ship: {fileID: 0}
   moved: 0
+  attacked: 0
+  health: 0
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
+  hpText: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!50 &929819950
 Rigidbody2D:
   serializedVersion: 4
@@ -3429,7 +3552,6 @@ MonoBehaviour:
   walkableTilemap: {fileID: 942614340}
   obstacleTilemap: {fileID: 1673743872}
   startTile: {x: 0, y: 0, z: 0}
-  ship: {fileID: 0}
   selectedTile: {fileID: 11400000, guid: b1668cc224e6b2640a7a3170732cc1e1, type: 2}
   unselectedTile: {fileID: 11400000, guid: 133ff45bef86de246ab60f7c178a4c70, type: 2}
   mask:
@@ -3437,14 +3559,12 @@ MonoBehaviour:
     m_Bits: 3072
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
-  TagFilterAlly: player2
-  TagFilterEnemy: player1
   movePoints: 4
   walkable: []
   allShips: []
-  allyShips: []
   allShipsPos: []
-  selected: 0
+  selection: {fileID: 0}
+  moving: 0
 --- !u!114 &1038284535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3458,6 +3578,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementsTilemap: {fileID: 0}
+  attackTilemp: {fileID: 0}
+  station: {fileID: 0}
+  selectable: 0
+  myTurn: 0
 --- !u!1 &1050163093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,8 +3696,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipStats: {fileID: 0}
+  ship: {fileID: 0}
   moved: 0
+  attacked: 0
+  health: 0
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
+  hpText: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1331246543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3885,7 +4018,6 @@ GameObject:
   - component: {fileID: 1637685513}
   - component: {fileID: 1637685512}
   - component: {fileID: 1637685511}
-  - component: {fileID: 1637685514}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3958,19 +4090,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1637685514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637685510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22cfdef697636824a928bea2a3555f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomSize: 0
 --- !u!1 &1642721646
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,8 +4913,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipStats: {fileID: 0}
+  ship: {fileID: 0}
   moved: 0
+  attacked: 0
+  health: 0
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
+  hpText: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1958648829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,12 +5143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f179d4b4ce1f39458e518fccb0ee1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ships:
-  - {fileID: 11400000, guid: 41e3534e8254bd845a90ef5378817e7b, type: 2}
-  - {fileID: 11400000, guid: a4999fc344a67cc4591473046598410a, type: 2}
-  - {fileID: 11400000, guid: a71238e09e5c14e4ca60bac33629a011, type: 2}
-  - {fileID: 11400000, guid: b9fae05c072031241aa2b9f82c4363ed, type: 2}
-  - {fileID: 11400000, guid: 6631051dbc0bb6540b1001528d11bf5b, type: 2}
 --- !u!4 &2061103673
 Transform:
   m_ObjectHideFlags: 0
