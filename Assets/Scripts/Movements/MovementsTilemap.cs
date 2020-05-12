@@ -21,13 +21,13 @@ public class MovementsTilemap : MonoBehaviour
 
     public GameObject destination;
     
-    
-    [TagSelector]
-    public string TagFilterAlly = "";
-    
-    [TagSelector]
-    public string TagFilterEnemy = "";
-    
+    //
+    // [TagSelector]
+    // public string TagFilterAlly = "";
+    //
+    // [TagSelector]
+    // public string TagFilterEnemy = "";
+    //
     public int movePoints;
     
     public List<Vector3Int> walkable;

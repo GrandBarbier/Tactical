@@ -7,7 +7,6 @@ using System.Linq;
 public class Station : MonoBehaviour
 {
     public GameObject stationUI;
-    public GameObject text;
     public GameObject vaisseau;
 
     public Tilemap walkableTilemap;
@@ -44,6 +43,8 @@ public class Station : MonoBehaviour
     public int baseCount;
 
     public List<GameObject> allyShips;
+
+    public StatVaisseau actualShip;
 
    
     void Start()
@@ -84,7 +85,6 @@ public class Station : MonoBehaviour
                     if(hit.collider.tag ==TagFilterAlly)
                     {
                         chosen = hit.collider.gameObject;
-
                         stationUI.SetActive(true);
                     } 
                 }
@@ -99,7 +99,8 @@ public class Station : MonoBehaviour
                         {
                             if (clickPos != allShipsPos[j])
                             {
-                                SpawnCroiseur();
+                                SpawnShip(actualShip);
+                                actualShip = null;
                                 break; 
                             }
                         }
@@ -110,8 +111,9 @@ public class Station : MonoBehaviour
     }
 
     
-    public void SpawnCroiseur()
+    public void SpawnShip(StatVaisseau ship)
     {
+        vaisseau.GetComponent<Stats>().ship = ship;
         Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
         stationUI.SetActive(false);
         ResetTilemap();
@@ -134,14 +136,15 @@ public class Station : MonoBehaviour
         selectable.Clear();
     }
 
-    public void Spawning()
+    public void Spawning(StatVaisseau ship)
     {
-         stationUI.SetActive(false);
-         spawn = true;
-         ResetTilemap();
-         startTile = walkableTilemap.WorldToCell(chosen.transform.position);
-         selectable = GetWalkableTiles(1, startTile);
-         ColorWalkable();
+        actualShip = ship;
+        stationUI.SetActive(false); 
+        spawn = true; 
+        ResetTilemap(); 
+        startTile = walkableTilemap.WorldToCell(chosen.transform.position); 
+        selectable = GetWalkableTiles(1, startTile); 
+        ColorWalkable();
     }
 
     public List<Vector3Int> GetWalkableTiles(int range, Vector3Int start)

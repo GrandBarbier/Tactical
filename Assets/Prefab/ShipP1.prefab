@@ -203,11 +203,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
+  ship: {fileID: 11400000, guid: a71238e09e5c14e4ca60bac33629a011, type: 2}
   moved: 0
   attacked: 0
   health: 5
-  hpText: {fileID: 0}
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
+  hpText: {fileID: 534148558049365908, guid: 67418d3c8e21790458c2a63ef22109ad, type: 3}
   player1: {fileID: 0}
   player2: {fileID: 0}
 --- !u!50 &861697408384413762

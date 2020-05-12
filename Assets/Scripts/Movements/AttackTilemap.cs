@@ -96,10 +96,6 @@ public class AttackTilemap : MonoBehaviour
                         }
                     }
                 }
-                // selection.deselected = true;
-                // ResetTilemap();
-                // attacking = false;
-                
             }
             if (hit2.collider != null)
             {
@@ -114,9 +110,6 @@ public class AttackTilemap : MonoBehaviour
                         hit2.collider.gameObject.GetComponent<StationState>().Capture(gameObject);
                     }
                 }
-                // selection.deselected = true;
-                // ResetTilemap();
-                // attacking = false;
             } 
 
             selection.deselected = true; 

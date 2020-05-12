@@ -37,7 +37,6 @@ public class Selection : MonoBehaviour
     private void Start()
     {
         choicePanel.SetActive(false);
-       
     }
 
     void Update()
