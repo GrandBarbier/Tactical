@@ -71,11 +71,18 @@ public class Selection : MonoBehaviour
             if (!selected)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-                if (hit.collider.tag == TagFilterAlly)
+                if (hit.collider != null)
                 {
-                    ship = hit.collider.gameObject;
-                    selected = true;
-                    choicePanel.SetActive(true);
+                    if (hit.collider.tag == TagFilterAlly)
+                    {
+                        ship = hit.collider.gameObject;
+                        selected = true;
+                        choicePanel.SetActive(true);
+                    }
+                }
+                else
+                {
+                    deselected = true;
                 }
             }
             else

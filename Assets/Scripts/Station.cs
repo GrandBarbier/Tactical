@@ -60,69 +60,63 @@ public class Station : MonoBehaviour
         allShips = selection.allShips;
         allyShips = selection.allyShips;
         ActualiseShipPos();
-
+        
         limit = baseCount + allyStation.Count;
         if (allyShips.Count < limit)
         {
             usable = true;
-
         }
         else
         {
             usable = false;
         }
+        
         if (Input.GetMouseButtonDown(0) && selection.selected == false && turn == true && usable == true && spawned == false)
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
             
-
             if (spawn == false)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
-
-                if(hit.collider.tag ==TagFilterAlly)
+                if (hit != null)
                 {
-                    chosen = hit.collider.gameObject;
+                    if(hit.collider.tag ==TagFilterAlly)
+                    {
+                        chosen = hit.collider.gameObject;
 
-                    stationUI.SetActive(true);
+                        stationUI.SetActive(true);
+                    } 
                 }
-                
             }
             else
             {
-               
                 for (int i = 0; i < selectable.Count; i++)
                 {
                     if (clickPos == selectable[i])
                     {
                         SpawnCroiseur();
                         break;
-
                     }
                 }
-                
             }
         }
-     
     }
 
+    
     public void SpawnCroiseur()
     {
-        
-            Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
+        Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
         stationUI.SetActive(false);
         ResetTilemap();
         spawn = false;
         spawned = true;
-
     }
 
     public void Exit()
     {
         stationUI.SetActive(false);
         chosen = null;
-
     }
 
     public void ResetTilemap()
@@ -136,8 +130,8 @@ public class Station : MonoBehaviour
 
     public void Spawning()
     {
-        stationUI.SetActive(false);
-        spawn = true;
+         stationUI.SetActive(false);
+         spawn = true;
          ResetTilemap();
          startTile = walkableTilemap.WorldToCell(chosen.transform.position);
          selectable = GetWalkableTiles(1, startTile);
@@ -215,8 +209,7 @@ public class Station : MonoBehaviour
     void ActualiseShipPos()
     {
         allShipsPos.Clear();
-
-
+        
         for (int i = 0; i < allShips.Count; i++)
         {
             Vector3Int pos = Vector3Int.FloorToInt(allShips[i].transform.position);

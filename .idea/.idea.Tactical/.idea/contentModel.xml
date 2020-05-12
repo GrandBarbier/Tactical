@@ -235,11 +235,11 @@
           <e p="PropertyDrawers" t="Include">
             <e p="TagSelectorAttribute.cs" t="Include" />
           </e>
-          <e p="ScriptableList.cs" t="Include" />
           <e p="Ships" t="Include">
             <e p="Stats.cs" t="Include" />
           </e>
           <e p="Station.cs" t="Include" />
+          <e p="StationState.cs" t="Include" />
           <e p="StatVaisseau.cs" t="Include" />
           <e p="Switch.cs" t="Include" />
         </e>
