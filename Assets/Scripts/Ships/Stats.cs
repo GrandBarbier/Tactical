@@ -20,6 +20,8 @@ public class Stats : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
 
+    public Canvas canvas;
+
     private void Start()
     {
         player1 = GameObject.Find("Player 1");
@@ -33,8 +35,9 @@ public class Stats : MonoBehaviour
 
     private void Update()
     {
-        hpText.transform.position = transform.position;
+        //hpText.transform.position = worldToUISpace(canvas, transform.position);
 
+        
         hpText.text =health.ToString();
 
         if (health <= 0)
@@ -43,4 +46,16 @@ public class Stats : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    // public Vector3 worldToUISpace(Canvas parentCanvas, Vector3 worldPos)
+    // {
+    //     //Convert the world for screen point so that it can be used with ScreenPointToLocalPointInRectangle function
+    //     Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+    //     Vector2 movePos;
+    //
+    //     //Convert the screenpoint to ui rectangle local point
+    //     RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, screenPos, parentCanvas.worldCamera, out movePos);
+    //     //Convert the local point to world point
+    //     return parentCanvas.transform.TransformPoint(movePos);
+    // }
 }
