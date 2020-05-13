@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
@@ -45,9 +46,11 @@ public class CameraControl : MonoBehaviour
             distance -= 0.2f;
         }
         GetComponent<Camera>().orthographicSize = distance;
-
+        
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
-        transform.position = pos;
+        transform.position = new Vector3(pos.x, pos.y,-10f);
     }
+
+
 }

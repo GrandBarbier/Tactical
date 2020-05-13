@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/oui.unity
     guid: 958ec763b32272046b1950e221dfbfdd
+  - enabled: 0
+    path: Assets/Scenes/Lelio.unity
+    guid: 90aafcdc2ef88f848bdff8d3c51eb7e3
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Lelio.unity
-    guid: 90aafcdc2ef88f848bdff8d3c51eb7e3
+    path: Assets/Scenes/Lelio 2.unity
+    guid: 8cc12ea3d8486184c97b8b57e223ea24
   m_configObjects: {}

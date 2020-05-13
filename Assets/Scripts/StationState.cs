@@ -1,24 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StationState : MonoBehaviour
 {
    
     public int health = 5;
 
-    public Sprite Station1;
-    public Sprite Station2;
-    // Start is called before the first frame update
+    public Sprite station1;
+    public Sprite station2;
+    public Text text;
+    
     void Start()
     {
          
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        text.text = health.ToString();
     }
 
     public void TakeDamage(int dmg)
@@ -33,15 +35,14 @@ public class StationState : MonoBehaviour
         {
             gameObject.tag = "StationP1";
             health = 5;
-            gameObject.GetComponent<SpriteRenderer>().sprite = Station1;
+            gameObject.GetComponent<SpriteRenderer>().sprite = station1;
             
         }
         else if (player.name == "Player 2")
         {
             gameObject.tag = "StationP2";
             health = 5;
-            gameObject.GetComponent<SpriteRenderer>().sprite = Station1;
+            gameObject.GetComponent<SpriteRenderer>().sprite = station2;
         }
-        
     }
 }

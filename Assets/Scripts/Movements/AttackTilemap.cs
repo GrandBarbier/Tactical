@@ -28,8 +28,6 @@ public class AttackTilemap : MonoBehaviour
 
     [TagSelector]
     public string TagStationEnnemy = "";
-
-    public int rangePoints;
     
     public List<Vector3Int> targetable;
     
@@ -45,8 +43,7 @@ public class AttackTilemap : MonoBehaviour
     public Selection selection;
 
     public bool attacking;
-
-    public int damage;
+    
 
     private void Start()
     {
@@ -87,7 +84,7 @@ public class AttackTilemap : MonoBehaviour
                             {
                                 if (clickPos == enemyShipPos[j])
                                 {
-                                    hit.collider.gameObject.GetComponent<Stats>().health -= damage;
+                                    hit.collider.gameObject.GetComponent<Stats>().health -= selection.ship.GetComponent<Stats>().damage;
                                     attacking = false;
                                     selection.ship.GetComponent<Stats>().attacked = true;
                                     break;
@@ -103,7 +100,7 @@ public class AttackTilemap : MonoBehaviour
                 if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
                 {
                 
-                    hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(damage);
+                    hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(selection.ship.GetComponent<Stats>().damage);
                     selection.ship.GetComponent<Stats>().attacked = true;
                     if (hit2.collider.gameObject.GetComponent<StationState>().health <= 0)
                     {
@@ -231,7 +228,7 @@ public class AttackTilemap : MonoBehaviour
             if (selection.ship.GetComponent<Stats>().attacked == false)
             {
                 startTile = walkableTilemap.WorldToCell(selection.ship.transform.position);
-                targetable = GetWalkableTiles(rangePoints, startTile);
+                targetable = GetWalkableTiles(selection.ship.GetComponent<Stats>().range, startTile);
                 ColorWalkable();
                 attacking = true;
                 selection.choicePanel.SetActive(false);

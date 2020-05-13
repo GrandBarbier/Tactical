@@ -21,15 +21,6 @@ public class MovementsTilemap : MonoBehaviour
 
     public GameObject destination;
     
-    //
-    // [TagSelector]
-    // public string TagFilterAlly = "";
-    //
-    // [TagSelector]
-    // public string TagFilterEnemy = "";
-    //
-    public int movePoints;
-    
     public List<Vector3Int> walkable;
     
     public List<GameObject> allShips;
@@ -41,7 +32,6 @@ public class MovementsTilemap : MonoBehaviour
 
     private void Start()
     {
-       
         ActualiseShipPos();
 
         selection = gameObject.GetComponent<Selection>();
@@ -189,7 +179,7 @@ public class MovementsTilemap : MonoBehaviour
             if (selection.ship.GetComponent<Stats>().moved == false)
             {
                 startTile = walkableTilemap.WorldToCell(selection.ship.transform.position);
-                walkable = GetWalkableTiles(movePoints, startTile);
+                walkable = GetWalkableTiles(selection.ship.GetComponent<Stats>().movePoints, startTile);
                 ColorWalkable();
                 moving = true;
                 selection.choicePanel.SetActive(false);
