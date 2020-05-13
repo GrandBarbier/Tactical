@@ -44,8 +44,8 @@ public class MenuPause : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Lelio"); //restart
-        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1;
 
     }
     public void Quit()

@@ -50,18 +50,37 @@ public class Station : MonoBehaviour
     public int money;
     public int nbStation;
     public Text textM;
+    public int price;
+
+    public float cd;
+    public bool cdActif;
+
+    public Text feedback;
 
    
     void Start()
     {
+        cd = 5.0f;
+
         stationUI.SetActive(false);
         selection = gameObject.GetComponent<Selection>();
-        
+        feedback.gameObject.SetActive(false);
     }
 
     
     void Update()
     {
+        if (cdActif == true)
+        {
+            cd = cd - Time.deltaTime;
+        }
+        if (cd <= 0)
+        {
+            feedback.gameObject.SetActive(false);
+            cdActif = false;
+            cd = 5.0f;
+        }
+
         textM.text = "Money : " + money;
 
         allyStation = allyStation.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
@@ -147,13 +166,28 @@ public class Station : MonoBehaviour
 
     public void Spawning(StatVaisseau ship)
     {
+        
         actualShip = ship;
+        price = ship.prix;
+        if (money >= price)
+        {
+            
+            spawn = true;
+            ResetTilemap();
+            startTile = walkableTilemap.WorldToCell(chosen.transform.position);
+            selectable = GetWalkableTiles(1, startTile);
+            ColorWalkable();
+            money = money - price;
+        }
+        else
+        {
+            cdActif = true;
+            feedback.gameObject.SetActive(true);
+            feedback.text = "Not Enough Mineral";
+            
+        }
         stationUI.SetActive(false); 
-        spawn = true; 
-        ResetTilemap(); 
-        startTile = walkableTilemap.WorldToCell(chosen.transform.position); 
-        selectable = GetWalkableTiles(1, startTile); 
-        ColorWalkable();
+        
     }
 
     public List<Vector3Int> GetWalkableTiles(int range, Vector3Int start)
