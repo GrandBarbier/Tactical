@@ -6180,8 +6180,9 @@ MonoBehaviour:
   distance: 0
   distanceMax: 3
   distanceMin: 8
-  panSpeed: 0.007
-  panLimit: {x: 2, y: 2}
+  panSpeed: 7
+  panLimit: {x: 6, y: 4}
+  panBorderThickness: 20
 --- !u!1 &1642721646
 GameObject:
   m_ObjectHideFlags: 0
