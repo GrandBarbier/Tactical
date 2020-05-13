@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Station : MonoBehaviour
 {
@@ -46,21 +47,29 @@ public class Station : MonoBehaviour
 
     public StatVaisseau actualShip;
 
+    public int money;
+    public int nbStation;
+    public Text textM;
+
    
     void Start()
     {
         stationUI.SetActive(false);
         selection = gameObject.GetComponent<Selection>();
+        
     }
 
     
     void Update()
     {
-        
+        textM.text = "Money : " + money;
+
         allyStation = allyStation.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = selection.allShips;
         allyShips = selection.allyShips;
         ActualiseShipPos();
+
+        nbStation = allyStation.Count;
         
         limit = baseCount + allyStation.Count;
         if (allyShips.Count < limit)

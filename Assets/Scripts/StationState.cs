@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class StationState : MonoBehaviour
 {
-    public bool neutre;
-    public bool p1;
-    public bool p2;
+   
     public int health = 5;
+
+    public Sprite Station1;
+    public Sprite Station2;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +33,14 @@ public class StationState : MonoBehaviour
         {
             gameObject.tag = "StationP1";
             health = 5;
+            gameObject.GetComponent<SpriteRenderer>().sprite = Station1;
             
         }
         else if (player.name == "Player 2")
         {
             gameObject.tag = "StationP2";
             health = 5;
+            gameObject.GetComponent<SpriteRenderer>().sprite = Station1;
         }
         
     }

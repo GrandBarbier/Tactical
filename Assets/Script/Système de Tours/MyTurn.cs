@@ -26,6 +26,8 @@
             player.station.turn = true;
             player.station.spawned = false;
             player.station.enabled = true;
+
+            player.station.money = player.station.money + 1500 + (500 * player.station.allyStation.Count);
         }
     
         public override void OnStateExit()
@@ -35,6 +37,7 @@
             player.selectable = false;
             player.station.turn = false;
             player.station.enabled = false;
+
 
         }
     }
