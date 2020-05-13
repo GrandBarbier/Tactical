@@ -1232,8 +1232,6 @@ MonoBehaviour:
     m_Bits: 2048
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
-  TagFilterAlly: player1
-  TagFilterEnemy: player2
   movePoints: 7
   walkable: []
   allShips: []
@@ -1307,7 +1305,6 @@ MonoBehaviour:
   maskS:
     serializedVersion: 2
     m_Bits: 256
-  TagFilterAlly: player1
   TagFilterEnemy: player2
   TagStationAlly: StationP1
   TagStationEnnemy: StationP2
@@ -1335,7 +1332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationUI: {fileID: 1151701736}
-  text: {fileID: 0}
   vaisseau: {fileID: 8591613995113724105, guid: b924e36d45fa737419ed06738e2d804e,
     type: 3}
   walkableTilemap: {fileID: 942614340}
@@ -1361,6 +1357,7 @@ MonoBehaviour:
   limit: 0
   baseCount: 4
   allyShips: []
+  actualShip: {fileID: 0}
 --- !u!1 &562687634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,18 +1910,24 @@ PrefabInstance:
     - target: {fileID: 7230168295338401237, guid: 2d5e2f6640aa37143901883cb5f7722a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.225128
+      value: 0.4589849
       objectReference: {fileID: 0}
     - target: {fileID: 7230168295338401237, guid: 2d5e2f6640aa37143901883cb5f7722a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.6862855
+      value: 0.4192555
       objectReference: {fileID: 0}
     - target: {fileID: 7230168295338401237, guid: 2d5e2f6640aa37143901883cb5f7722a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.57885
+      value: 0.042679187
       objectReference: {fileID: 0}
+    - target: {fileID: 7230168295338401238, guid: 2d5e2f6640aa37143901883cb5f7722a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2965a3900cd41b6429a6519fe0ad693b,
+        type: 3}
     - target: {fileID: 7230168295338401239, guid: 2d5e2f6640aa37143901883cb5f7722a,
         type: 3}
       propertyPath: m_Name
@@ -2227,6 +2230,10 @@ MonoBehaviour:
   moved: 0
   attacked: 0
   health: 5
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
   hpText: {fileID: 1643556549}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -2458,6 +2465,10 @@ MonoBehaviour:
   moved: 0
   attacked: 0
   health: 5
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
   hpText: {fileID: 453007062}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -5035,8 +5046,6 @@ MonoBehaviour:
     m_Bits: 2048
   destination: {fileID: 1490259355177962385, guid: 51fc1dea7084a5745b29f80b9e3e0014,
     type: 3}
-  TagFilterAlly: player2
-  TagFilterEnemy: player1
   movePoints: 4
   walkable: []
   allShips: []
@@ -5110,7 +5119,6 @@ MonoBehaviour:
   maskS:
     serializedVersion: 2
     m_Bits: 256
-  TagFilterAlly: player2
   TagFilterEnemy: player1
   TagStationAlly: StationP2
   TagStationEnnemy: StationP1
@@ -5138,7 +5146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationUI: {fileID: 1151701736}
-  text: {fileID: 0}
   vaisseau: {fileID: 7230168295338401239, guid: 788598b700387e440911f197436746aa,
     type: 3}
   walkableTilemap: {fileID: 942614340}
@@ -5164,6 +5171,7 @@ MonoBehaviour:
   limit: 0
   baseCount: 3
   allyShips: []
+  actualShip: {fileID: 0}
 --- !u!1 &1050163093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,9 +5288,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5507,6 +5515,10 @@ MonoBehaviour:
   moved: 0
   attacked: 0
   health: 3
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
   hpText: {fileID: 1778047253}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -6346,7 +6358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cfdef697636824a928bea2a3555f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSize: 0
+  distance: 0
+  distanceMax: 0
+  distanceMin: 0
 --- !u!1 &1642721646
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,6 +7946,10 @@ MonoBehaviour:
   moved: 0
   attacked: 0
   health: 3
+  shield: 0
+  movePoints: 0
+  damage: 0
+  range: 0
   hpText: {fileID: 287990278}
   player1: {fileID: 0}
   player2: {fileID: 0}
@@ -8154,12 +8172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f179d4b4ce1f39458e518fccb0ee1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ships:
-  - {fileID: 11400000, guid: 41e3534e8254bd845a90ef5378817e7b, type: 2}
-  - {fileID: 11400000, guid: a4999fc344a67cc4591473046598410a, type: 2}
-  - {fileID: 11400000, guid: a71238e09e5c14e4ca60bac33629a011, type: 2}
-  - {fileID: 11400000, guid: b9fae05c072031241aa2b9f82c4363ed, type: 2}
-  - {fileID: 11400000, guid: 6631051dbc0bb6540b1001528d11bf5b, type: 2}
 --- !u!4 &2061103673
 Transform:
   m_ObjectHideFlags: 0
