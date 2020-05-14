@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class StationState : MonoBehaviour
 {
    
-    public int health = 5;
+    public int health;
+    public int baseHealth;
+    public int newHealth;
 
     public Sprite station1;
     public Sprite station2;
@@ -14,7 +16,7 @@ public class StationState : MonoBehaviour
     
     void Start()
     {
-         
+        health = baseHealth;
     }
 
     
@@ -34,14 +36,14 @@ public class StationState : MonoBehaviour
         if(player.name == "Player 1")
         {
             gameObject.tag = "StationP1";
-            health = 5;
+            health = newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
             
         }
         else if (player.name == "Player 2")
         {
             gameObject.tag = "StationP2";
-            health = 5;
+            health = newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station2;
         }
     }

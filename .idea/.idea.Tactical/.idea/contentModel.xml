@@ -222,6 +222,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="BackgroundPs.png" t="Include" />
           <e p="CameraControl.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="MenuPause.cs" t="Include" />
