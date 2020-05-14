@@ -9,8 +9,12 @@ public class StatVaisseau : ScriptableObject
     public int shield;
     public int health;
     public int mvt;
-    public int dmg;
+    public int dmgMin;
+    public int dmgMax;
     public int portée;
+    public Sprite sprite1;
+    public Sprite sprite2;
+
     // Start is called before the first frame update
     void Start()
     {
