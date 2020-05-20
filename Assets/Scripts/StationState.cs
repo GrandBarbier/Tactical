@@ -17,7 +17,7 @@ public class StationState : MonoBehaviour
     
     void Start()
     {
-        health = baseHealth;
+        
     }
 
     

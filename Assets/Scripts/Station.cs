@@ -46,6 +46,7 @@ public class Station : MonoBehaviour
     public List<GameObject> allyShips;
 
     public StatVaisseau actualShip;
+    public Sprite actualSprite;
 
     public int money;
     public int nbStation;
@@ -142,6 +143,7 @@ public class Station : MonoBehaviour
     public void SpawnShip(StatVaisseau ship)
     {
         vaisseau.GetComponent<Stats>().ship = ship;
+        
         Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
         stationUI.SetActive(false);
         ResetTilemap();
@@ -166,7 +168,6 @@ public class Station : MonoBehaviour
 
     public void Spawning(StatVaisseau ship)
     {
-        
         actualShip = ship;
         price = ship.prix;
         if (money >= price)

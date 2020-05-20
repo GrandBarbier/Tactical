@@ -16,7 +16,12 @@ public class Player : MonoBehaviour
     public bool selectable;
     public bool myTurn;
 
-    
+    public GameObject coreShipJ1;
+    public GameObject coreShipJ2;
+
+    public GameObject VictoryJ1;
+    public GameObject VictoryJ2;
+
 
 
     private void Start()
@@ -26,7 +31,23 @@ public class Player : MonoBehaviour
         attackTilemp = GetComponent<AttackTilemap>();
         station = GetComponent<Station>();
     }
-    
+
+    private void Update()
+    {
+        coreShipJ1 = GameObject.Find("CoreShip1");
+        coreShipJ2 = GameObject.Find("CoreShip1");
+
+        if (coreShipJ1.GetComponent<Stats>().health <= 0)
+        {
+            VictoryJ2.SetActive(true);
+        }
+
+        if(coreShipJ2.GetComponent<Stats>().health <= 0)
+        {
+            VictoryJ1.SetActive(true);
+        }
+    }
+
     public void SetState(State state)
     {
         if (currentState != null)

@@ -16,5 +16,6 @@ MonoBehaviour:
   shield: 4
   health: 3
   mvt: 5
-  dmg: 1
+  dmgMin: 1
+  dmgMax: 2
   "port\xE9e": 1

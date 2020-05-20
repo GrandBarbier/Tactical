@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Stats : MonoBehaviour
 {
     public StatVaisseau ship;
+    public Sprite sprite1;
+    public Sprite sprite2;
     public bool moved = false;
     public bool attacked = false;
+    public bool captured = false;
     public int health;
     public int shield;
     public int movePoints;
@@ -25,14 +29,25 @@ public class Stats : MonoBehaviour
     private Quaternion iniRot;
     private void Start()
     {
+        sprite1 = ship.sprite1;
+        sprite2 = ship.sprite2;
         iniRot = hpText.transform.rotation;
         player1 = GameObject.Find("Player 1");
         player2 = GameObject.Find("Player 2");
         health = ship.health;
         shield = ship.shield;
         movePoints = ship.mvt;
-        damage = ship.dmg;
+        damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
         range = ship.portée;
+        if (gameObject.tag == "player1")
+        {
+            GetComponent<SpriteRenderer>().sprite = sprite1;
+        }
+        if (gameObject.tag == "player2")
+        {
+            GetComponent<SpriteRenderer>().sprite = sprite2;
+        }
+
     }
 
     private void Update()

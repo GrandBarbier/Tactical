@@ -228,6 +228,7 @@ public class AttackTilemap : MonoBehaviour
                 ColorWalkable();
                 attacking = true;
                 selection.choicePanel.SetActive(false);
+                selection.ship.GetComponent<Stats>().moved = true;
             }
         }
     }
