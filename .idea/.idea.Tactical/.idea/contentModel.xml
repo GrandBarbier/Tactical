@@ -222,7 +222,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="BackgroundPs.png" t="Include" />
           <e p="CameraControl.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="MenuPause.cs" t="Include" />
@@ -230,6 +229,7 @@
           <e p="Move.cs" t="Include" />
           <e p="Movements" t="Include">
             <e p="AttackTilemap.cs" t="Include" />
+            <e p="CaptureTilemap.cs" t="Include" />
             <e p="MovementsTilemap.cs" t="Include" />
             <e p="Selection.cs" t="Include" />
           </e>

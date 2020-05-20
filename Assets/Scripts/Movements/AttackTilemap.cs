@@ -102,10 +102,6 @@ public class AttackTilemap : MonoBehaviour
                 
                     hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(selection.ship.GetComponent<Stats>().damage);
                     selection.ship.GetComponent<Stats>().attacked = true;
-                    if (hit2.collider.gameObject.GetComponent<StationState>().health <= 0)
-                    {
-                        hit2.collider.gameObject.GetComponent<StationState>().Capture(gameObject);
-                    }
                 }
             } 
 
