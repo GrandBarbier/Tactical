@@ -19,3 +19,5 @@ MonoBehaviour:
   dmgMin: 2
   dmgMax: 4
   "port\xE9e": 2
+  sprite1: {fileID: 21300000, guid: cc9da3a4717fd164494646a60eea273d, type: 3}
+  sprite2: {fileID: 21300000, guid: e8b65afa015332d45a1286d0d2d67589, type: 3}

@@ -46,7 +46,7 @@ public class Station : MonoBehaviour
     public List<GameObject> allyShips;
 
     public StatVaisseau actualShip;
-    public Sprite actualSprite;
+
 
     public int money;
     public int nbStation;
