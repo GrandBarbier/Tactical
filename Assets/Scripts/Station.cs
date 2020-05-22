@@ -82,7 +82,7 @@ public class Station : MonoBehaviour
             cd = 5.0f;
         }
 
-        textM.text = "Money : " + money;
+        textM.text = money.ToString();
 
         allyStation = allyStation.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = selection.allShips;
