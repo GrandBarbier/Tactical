@@ -36,18 +36,18 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        coreStationJ1 = GameObject.FindWithTag("CoreStationP1");
         coreStationJ2 = GameObject.FindWithTag("CoreStationP2");
+        coreStationJ1 = GameObject.FindWithTag("CoreStationP1");
 
-        if (coreStationJ1.GetComponent<StationState>().health <= 0)
         {
+        if (coreStationJ1.GetComponent<StationState>().health <= 0)
             VictoryJ2.SetActive(true);
             Destroy(coreStationJ1);
             restart.SetActive(true);
         }
 
-        if(coreStationJ2.GetComponent<StationState>().health <= 0)
         {
+        if(coreStationJ2.GetComponent<StationState>().health <= 0)
             VictoryJ1.SetActive(true);
             Destroy(coreStationJ2);
             restart.SetActive(true);
