@@ -10,6 +10,8 @@ public class MenuPause : MonoBehaviour
     public GameObject QuitB;
     public GameObject GameplayManager;
 
+    public bool paused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,23 @@ public class MenuPause : MonoBehaviour
     {
         if (Input.GetKeyDown("escape")) //le jeu s'arrète, les boutons du menu pause s'affiche
         {
+            paused = !paused;   
+        }
+        if (paused == true)
+        {
             Debug.Log("PAUSE");
             Restart.SetActive(true);
             Resume.SetActive(true);
             QuitB.SetActive(true);
-            GameplayManager.SetActive(false);
             Time.timeScale = 0;
-            
+        }
+        if (paused == false)
+        {
+            Debug.Log("PAUSE");
+            Restart.SetActive(false);
+            Resume.SetActive(false);
+            QuitB.SetActive(false);
+            Time.timeScale = 1;
         }
     }
     public void ResumeGame()

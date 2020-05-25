@@ -16,11 +16,13 @@ public class Player : MonoBehaviour
     public bool selectable;
     public bool myTurn;
 
-    public GameObject coreShipJ1;
-    public GameObject coreShipJ2;
+    public GameObject coreStationJ1;
+    public GameObject coreStationJ2;
 
     public GameObject VictoryJ1;
     public GameObject VictoryJ2;
+
+    public GameObject restart;
 
 
 
@@ -34,17 +36,21 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        coreShipJ1 = GameObject.Find("CoreShip1");
-        coreShipJ2 = GameObject.Find("CoreShip1");
+        coreStationJ1 = GameObject.FindWithTag("CoreStationP1");
+        coreStationJ2 = GameObject.FindWithTag("CoreStationP2");
 
-        if (coreShipJ1.GetComponent<Stats>().health <= 0)
+        if (coreStationJ1.GetComponent<StationState>().health <= 0)
         {
             VictoryJ2.SetActive(true);
+            Destroy(coreStationJ1);
+            restart.SetActive(true);
         }
 
-        if(coreShipJ2.GetComponent<Stats>().health <= 0)
+        if(coreStationJ2.GetComponent<StationState>().health <= 0)
         {
             VictoryJ1.SetActive(true);
+            Destroy(coreStationJ2);
+            restart.SetActive(true);
         }
     }
 

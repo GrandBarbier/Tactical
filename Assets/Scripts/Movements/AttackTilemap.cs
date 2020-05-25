@@ -28,7 +28,13 @@ public class AttackTilemap : MonoBehaviour
 
     [TagSelector]
     public string TagStationEnnemy = "";
-    
+
+    [TagSelector]
+    public string TagCoreStationEnnemy = "";
+
+    [TagSelector]
+    public string TagCoreStationAlly = "";
+
     public List<Vector3Int> targetable;
     
     public List<GameObject> allShips;
@@ -60,10 +66,12 @@ public class AttackTilemap : MonoBehaviour
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagStationEnnemy)).ToList();
+        enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagCoreStationEnnemy)).ToList();
         allShips = selection.allShips;
         allyShips = selection.allyShips;
         allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagStationAlly)).ToList();
-        
+        allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagCoreStationAlly)).ToList();
+
         ActualiseShipPos();
 
         if (attacking && Input.GetMouseButton(0))
@@ -97,7 +105,7 @@ public class AttackTilemap : MonoBehaviour
             if (hit2.collider != null)
             {
                 Debug.Log(hit2.collider);
-                if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
+                if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == TagCoreStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
                 {
                 
                     hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(selection.ship.GetComponent<Stats>().damage);

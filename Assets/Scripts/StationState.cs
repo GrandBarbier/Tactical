@@ -17,7 +17,16 @@ public class StationState : MonoBehaviour
     
     void Start()
     {
-        
+      if (gameObject.tag == "CoreStationP1")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = station1;
+            health = health + 5;
+        }
+        if (gameObject.tag == "CoreStationP2")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = station2;
+            health = health + 5;
+        }
     }
 
     
