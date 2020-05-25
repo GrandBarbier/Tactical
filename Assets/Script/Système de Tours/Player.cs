@@ -32,21 +32,21 @@ public class Player : MonoBehaviour
         station = GetComponent<Station>();
     }
 
-    private void Update()
-    {
-        coreShipJ1 = GameObject.Find("CoreShip1");
-        coreShipJ2 = GameObject.Find("CoreShip1");
-
-        if (coreShipJ1.GetComponent<Stats>().health <= 0)
-        {
-            VictoryJ2.SetActive(true);
-        }
-
-        if(coreShipJ2.GetComponent<Stats>().health <= 0)
-        {
-            VictoryJ1.SetActive(true);
-        }
-    }
+    // private void Update()
+    // {
+    //     coreShipJ1 = GameObject.Find("CoreShip1");
+    //     coreShipJ2 = GameObject.Find("CoreShip1");
+    //
+    //     if (coreShipJ1.GetComponent<Stats>().health <= 0)
+    //     {
+    //         VictoryJ2.SetActive(true);
+    //     }
+    //
+    //     if(coreShipJ2.GetComponent<Stats>().health <= 0)
+    //     {
+    //         VictoryJ1.SetActive(true);
+    //     }
+    // }
 
     public void SetState(State state)
     {
