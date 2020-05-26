@@ -1,4 +1,7 @@
-﻿namespace Script.Système_de_Tours
+﻿using UnityEngine.UI;
+using UnityEngine;
+namespace Script.Système_de_Tours
+
 {
     public class MyTurn : State
     {
@@ -37,6 +40,12 @@
             player.selectable = false;
             player.station.turn = false;
             player.station.enabled = false;
+
+            player.gameObject.GetComponent<AttackTilemap>().attackButton.GetComponent<Image>().color = Color.white;
+            player.gameObject.GetComponent<AttackTilemap>().captureButton.GetComponent<Image>().color = Color.white;
+            player.gameObject.GetComponent<AttackTilemap>().moveButton.GetComponent<Image>().color = Color.white;
+
+
 
 
         }

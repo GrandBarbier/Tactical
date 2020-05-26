@@ -32,22 +32,25 @@ public class Player : MonoBehaviour
         movementsTilemap = GetComponent<MovementsTilemap>();
         attackTilemp = GetComponent<AttackTilemap>();
         station = GetComponent<Station>();
-    }
 
-    private void Update()
-    {
         coreStationJ2 = GameObject.FindWithTag("CoreStationP2");
         coreStationJ1 = GameObject.FindWithTag("CoreStationP1");
+    }
 
-        {
+    public void Update()
+    {        
         if (coreStationJ1.GetComponent<StationState>().health <= 0)
+        { 
             VictoryJ2.SetActive(true);
             Destroy(coreStationJ1);
             restart.SetActive(true);
+            
         }
 
-        {
+        
         if(coreStationJ2.GetComponent<StationState>().health <= 0)
+        {
+            Debug.Log("aled");
             VictoryJ1.SetActive(true);
             Destroy(coreStationJ2);
             restart.SetActive(true);

@@ -6,6 +6,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class AttackTilemap : MonoBehaviour
 {
@@ -49,7 +50,10 @@ public class AttackTilemap : MonoBehaviour
     public Selection selection;
 
     public bool attacking;
-    
+
+    public GameObject attackButton;
+    public GameObject captureButton;
+    public GameObject moveButton;
 
     private void Start()
     {
@@ -62,6 +66,18 @@ public class AttackTilemap : MonoBehaviour
 
     void Update()
     {
+        if (selection.ship.GetComponent<Stats>().moved == true)
+        {
+            moveButton.GetComponent<Image>().color = Color.grey;
+        }
+
+        if (selection.ship.GetComponent<Stats>().attacked == true || selection.ship.GetComponent<Stats>().captured == true)
+        {
+            attackButton.GetComponent<Image>().color = Color.grey;
+            captureButton.GetComponent<Image>().color = Color.grey;
+            moveButton.GetComponent<Image>().color = Color.grey;
+        }
+
         enemyShips.Clear();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();
@@ -84,6 +100,7 @@ public class AttackTilemap : MonoBehaviour
             {
                 if (hit.collider.tag == TagFilterEnemy && selection.ship.GetComponent<Stats>().attacked == false)
                 {
+                    
                     for (int i = 0; i < targetable.Count; i++)
                     {
                         if (clickPos == targetable[i])
@@ -95,6 +112,7 @@ public class AttackTilemap : MonoBehaviour
                                     hit.collider.gameObject.GetComponent<Stats>().health -= selection.ship.GetComponent<Stats>().damage;
                                     attacking = false;
                                     selection.ship.GetComponent<Stats>().attacked = true;
+                                    selection.ship.GetComponent<Stats>().moved = true;
                                     break;
                                 }
                             }
@@ -107,14 +125,15 @@ public class AttackTilemap : MonoBehaviour
                 Debug.Log(hit2.collider);
                 if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == TagCoreStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
                 {
-                
+
                     hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(selection.ship.GetComponent<Stats>().damage);
                     selection.ship.GetComponent<Stats>().attacked = true;
+                    selection.ship.GetComponent<Stats>().moved = true;
                 }
-            } 
+            }
 
-            selection.deselected = true; 
-            ResetTilemap(); 
+            selection.deselected = true;
+            ResetTilemap();
             attacking = false;
         }
     }
@@ -236,8 +255,9 @@ public class AttackTilemap : MonoBehaviour
                 ColorWalkable();
                 attacking = true;
                 selection.choicePanel.SetActive(false);
-                selection.ship.GetComponent<Stats>().moved = true;
+               
             }
+            
         }
     }
 }

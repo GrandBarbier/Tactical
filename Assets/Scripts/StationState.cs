@@ -13,7 +13,9 @@ public class StationState : MonoBehaviour
     public Sprite station;
     public Sprite station1;
     public Sprite station2;
+    public Sprite stationCore2;
     public Text text;
+    public Animator animator;
     
     void Start()
     {
@@ -24,7 +26,7 @@ public class StationState : MonoBehaviour
         }
         if (gameObject.tag == "CoreStationP2")
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = station2;
+            gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
             health = health + 5;
         }
     }
@@ -39,12 +41,14 @@ public class StationState : MonoBehaviour
             gameObject.tag = "Station";
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
+            animator.Play("IdleNeutre");
         }
         else if(gameObject.tag == "StationP2" && health <= 0)
         {
             gameObject.tag = "Station";
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
+            animator.Play("IdleNeutre");
         }
     }
 
@@ -60,6 +64,7 @@ public class StationState : MonoBehaviour
             gameObject.tag = "StationP1";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
+            animator.Play("HumanNeutre");
         }
         
         else if (player.name == "Player 2")
@@ -67,6 +72,7 @@ public class StationState : MonoBehaviour
             gameObject.tag = "StationP2";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station2;
+            animator.Play("AlienNeutre");
         }
     }
 }

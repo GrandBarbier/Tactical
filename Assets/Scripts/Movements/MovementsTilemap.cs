@@ -43,6 +43,8 @@ public class MovementsTilemap : MonoBehaviour
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP1")).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP2")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("CoreStationP1")).ToList();
+        allShips = allShips.Union(GameObject.FindGameObjectsWithTag("CoreStationP2")).ToList();
         ActualiseShipPos();
         
         
