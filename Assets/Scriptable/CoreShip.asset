@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CoreShip
   m_EditorClassIdentifier: 
   prix: 0
-  shield: 0
-  health: 0
-  mvt: 0
-  dmgMin: 0
-  dmgMax: 0
-  "port\xE9e": 0
-  sprite1: {fileID: 0}
-  sprite2: {fileID: 0}
+  shield: 10
+  health: 10
+  mvt: 5
+  dmgMin: 8
+  dmgMax: 10
+  "port\xE9e": 5
+  sprite1: {fileID: 21300000, guid: f21525a4fc8a162458d7a3287721c1f5, type: 3}
+  sprite2: {fileID: 21300000, guid: f83b1ed314103c34c96b6c6f95e2af9b, type: 3}

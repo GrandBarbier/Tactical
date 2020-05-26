@@ -146,7 +146,8 @@ public class Station : MonoBehaviour
     public void SpawnShip(StatVaisseau ship)
     {
         vaisseau.GetComponent<Stats>().ship = ship;
-        
+        vaisseau.GetComponent<Stats>().moved = true;
+        vaisseau.GetComponent<Stats>().attacked = true;
         Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
         stationUI.SetActive(false);
         ResetTilemap();

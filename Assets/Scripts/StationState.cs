@@ -29,12 +29,19 @@ public class StationState : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
             health = health + 5;
         }
+
+       
     }
 
     
     void Update()
     {
-        text.text = health.ToString();
+        if (gameObject.tag == "CoreStationP2" && health <= 0)
+        {
+            animator.SetBool("Destroy", true);
+            
+        }
+            text.text = health.ToString();
 
         if (gameObject.tag == "StationP1" && health <= 0)
         {

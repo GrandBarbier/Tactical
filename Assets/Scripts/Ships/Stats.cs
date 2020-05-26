@@ -47,6 +47,7 @@ public class Stats : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = sprite2;
         }
+        
 
     }
 

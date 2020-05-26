@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     public GameObject restart;
 
+    
 
 
     private void Start()
@@ -35,12 +36,15 @@ public class Player : MonoBehaviour
 
         coreStationJ2 = GameObject.FindWithTag("CoreStationP2");
         coreStationJ1 = GameObject.FindWithTag("CoreStationP1");
+
+        
     }
 
     public void Update()
     {        
         if (coreStationJ1.GetComponent<StationState>().health <= 0)
-        { 
+        {
+            
             VictoryJ2.SetActive(true);
             Destroy(coreStationJ1);
             restart.SetActive(true);
@@ -50,10 +54,13 @@ public class Player : MonoBehaviour
         
         if(coreStationJ2.GetComponent<StationState>().health <= 0)
         {
+            
             Debug.Log("aled");
             VictoryJ1.SetActive(true);
-            Destroy(coreStationJ2);
+            
             restart.SetActive(true);
+            coreStationJ1.GetComponent<Animator>().Play("CoreExplosion");
+            Destroy(coreStationJ2, 1.0f);
         }
     }
 
