@@ -12,6 +12,8 @@ TagManager:
   - UI
   - StationP2
   - Station
+  - CoreStationP1
+  - CoreStationP2
   layers:
   - Default
   - TransparentFX

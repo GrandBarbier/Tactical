@@ -23,6 +23,9 @@ public class Station : MonoBehaviour
     [TagSelector]
     public string TagFilterAlly = "";
 
+    [TagSelector]
+    public string TagFilterCoreStation = "";
+
     public List<Vector3Int> selectable;
 
     public List<GameObject> allShips;
@@ -111,7 +114,7 @@ public class Station : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
                 if (hit.collider != null)
                 {
-                    if(hit.collider.tag ==TagFilterAlly)
+                    if(hit.collider.tag ==TagFilterAlly || hit.collider.tag == TagFilterCoreStation)
                     {
                         chosen = hit.collider.gameObject;
                         stationUI.SetActive(true);
