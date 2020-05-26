@@ -8,13 +8,15 @@ using UnityEngine.Tilemaps;
 
 public class Terrain : MonoBehaviour
 {
-    public Tilemap terrain;
+    public Tilemap terrainNebul;
+    public Tilemap terrainAster;
     
     public List<GameObject> allShips;
     public List<Vector3Int> allShipsPos;
-    
-    
 
+    public int malusNebul;
+    public int malusAster;
+    
     private void Update()
     {
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("player1")).ToList();
@@ -39,9 +41,13 @@ public class Terrain : MonoBehaviour
     {
         for (int i = 0; i < allShipsPos.Count; i++)
         {
-            if (terrain.GetTile(allShipsPos[i]) != null)
+            if (terrainNebul.GetTile(allShipsPos[i]) != null)
             {
-                Effect(allShips[i]);
+                EffectNebul(allShips[i]);
+            }
+            else if (terrainAster.GetTile(allShipsPos[i]) != null)
+            {
+                EffectAster(allShips[i]);
             }
             else
             {
@@ -50,13 +56,19 @@ public class Terrain : MonoBehaviour
         }
     }
 
-    public void Effect(GameObject ship)
+    public void EffectNebul(GameObject ship)
     {
-        ship.GetComponent<Stats>().range = ship.GetComponent<Stats>().ship.portée - 2;
+        ship.GetComponent<Stats>().range = ship.GetComponent<Stats>().ship.portée - malusNebul;
+    }
+
+    public void EffectAster(GameObject ship)
+    {
+        ship.GetComponent<Stats>().movePoints = ship.GetComponent<Stats>().ship.mvt - malusAster;
     }
 
     public void Redo(GameObject ship)
     {
         ship.GetComponent<Stats>().range = ship.GetComponent<Stats>().ship.portée;
+        ship.GetComponent<Stats>().movePoints = ship.GetComponent<Stats>().ship.mvt;
     }
 }
