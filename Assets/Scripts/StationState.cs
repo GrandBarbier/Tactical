@@ -22,12 +22,12 @@ public class StationState : MonoBehaviour
       if (gameObject.tag == "CoreStationP1")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
-            health = health + 5;
+            health = health + 10;
         }
         if (gameObject.tag == "CoreStationP2")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
-            health = health + 5;
+            health = health + 10;
         }
         if (gameObject.tag == "StationP1")
         {

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: NebuleuseTurquoise
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -7767132403617434995, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -4947293972358153435, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: 8272713070089386355, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: 3931645035728987848, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: 1770165970517023058, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -4798136555804270861, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -1515398573193381204, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -8674901609207840025, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: 8769615527401090611, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -8326372956851082289, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: 2587786034158023382, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -1146466444890795574, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -7563312954159479502, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -3668538018856267397, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  - {fileID: -7056379283122529403, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

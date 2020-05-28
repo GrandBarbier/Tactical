@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: NebuleuseGreen
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 6537015268990450627, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 3395337294860830875, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: -3955627811552890807, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: -8580967230084219166, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 6295616525952985046, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 8106032879656016135, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 7028920875340358020, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 5912906738448000047, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: -6778570729345588275, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 729315990093764821, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 504784792698941894, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 443648797276798508, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: -7106478679752587825, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: 714505249053932242, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  - {fileID: -6503306732652412009, guid: 390efed3f35998d43829024f085866e6, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
