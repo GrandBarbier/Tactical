@@ -26,7 +26,8 @@ public class Selection : MonoBehaviour
     
     public GameObject ship;
     public GameObject choicePanel;
-    
+
+    public Text Stat;
    
     
     public bool selected;
@@ -77,11 +78,13 @@ public class Selection : MonoBehaviour
                         ship = hit.collider.gameObject;
                         selected = true;
                         choicePanel.SetActive(true);
+                        Stat.GetComponent<Text>().text = "Damage : " + ship.GetComponent<Stats>().dmgMin.ToString() + "-" + ship.GetComponent<Stats>().dmgMax.ToString();
                     }
                 }
                 else
                 {
                     deselected = true;
+                    Stat.GetComponent<Text>().text = "";
                 }
             }
             else

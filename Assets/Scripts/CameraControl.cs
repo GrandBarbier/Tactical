@@ -13,7 +13,7 @@ public class CameraControl : MonoBehaviour
     //recuperation de la variable distance de la camera qui gere le niveau de zoom 
     void Start()
     {
-        distance = 5;
+        distance = 8;
     }
 
     void Update()

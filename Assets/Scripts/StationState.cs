@@ -29,8 +29,17 @@ public class StationState : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
             health = health + 5;
         }
+        if (gameObject.tag == "StationP1")
+        {
+            animator.Play("HumanNeutre");
+            health = health + 5;
+        }
+        if (gameObject.tag == "StationP2")
+        {
+            animator.Play("AlienNeutre");
+            health = health + 5;
+        }
 
-       
     }
 
     
@@ -41,7 +50,12 @@ public class StationState : MonoBehaviour
             animator.SetBool("Destroy", true);
             
         }
-            text.text = health.ToString();
+        if (gameObject.tag == "CoreStationP1" && health <= 0)
+        {
+            animator.SetBool("Destroy", true);
+
+        }
+        text.text = health.ToString();
 
         if (gameObject.tag == "StationP1" && health <= 0)
         {
@@ -68,18 +82,20 @@ public class StationState : MonoBehaviour
     {
         if(player.name == "Player 1")
         {
+            animator.Play("HumanNeutre");
             gameObject.tag = "StationP1";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
-            animator.Play("HumanNeutre");
+            
         }
         
         else if (player.name == "Player 2")
         {
+            animator.Play("AlienNeutre");
             gameObject.tag = "StationP2";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station2;
-            animator.Play("AlienNeutre");
+           
         }
     }
 }

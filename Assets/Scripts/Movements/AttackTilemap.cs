@@ -70,7 +70,7 @@ public class AttackTilemap : MonoBehaviour
         {
             moveButton.GetComponent<Image>().color = Color.grey;
         }
-        else if (selection.ship.GetComponent<Stats>().moved == true)
+        if(selection.ship.GetComponent<Stats>().moved == false)
         {
             moveButton.GetComponent<Image>().color = Color.white;
         }
@@ -85,7 +85,6 @@ public class AttackTilemap : MonoBehaviour
         {
             attackButton.GetComponent<Image>().color = Color.white;
             captureButton.GetComponent<Image>().color = Color.white;
-            
         }
 
         enemyShips.Clear();

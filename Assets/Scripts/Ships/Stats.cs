@@ -18,6 +18,7 @@ public class Stats : MonoBehaviour
     public int movePoints;
     public int damage;
     public int range;
+    public int dmgMin, dmgMax;
     
     public Text hpText;
 
@@ -37,6 +38,8 @@ public class Stats : MonoBehaviour
         health = ship.health;
         shield = ship.shield;
         movePoints = ship.mvt;
+        dmgMin = ship.dmgMin;
+        dmgMax = ship.dmgMax;
         damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
         range = ship.portée;
         if (gameObject.tag == "player1")

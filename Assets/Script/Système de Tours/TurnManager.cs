@@ -16,6 +16,15 @@ namespace Script.Système_de_Tours
 
         public Text turnText;
 
+        public GameObject interface1;
+        public GameObject interface2;
+
+        public Sprite NextHuman;
+        public Sprite NextAlien;
+
+        public GameObject buttonNext;
+
+
         void Awake()
         {
             if(Instance == null)
@@ -31,11 +40,25 @@ namespace Script.Système_de_Tours
         {
             actualTurn = 0;
             players[actualTurn].GetComponent<Player>().ItsMyTurn();
+           
         }
 
         private void Update()
         {
-            turnText.text = "Tour de " + players[actualTurn].name;
+            turnText.text = players[actualTurn].name;
+
+            if (players[actualTurn].name == "Player 1")
+            {
+                interface1.SetActive(true);
+                interface2.SetActive(false);
+                buttonNext.GetComponent<Image>().sprite = NextHuman;
+            }
+            else
+            {
+                interface1.SetActive(false);
+                interface2.SetActive(true);
+                buttonNext.GetComponent<Image>().sprite = NextAlien;
+            }
         }
 
         public void NextTurn()

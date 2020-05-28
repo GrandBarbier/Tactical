@@ -44,9 +44,9 @@ public class Player : MonoBehaviour
     {        
         if (coreStationJ1.GetComponent<StationState>().health <= 0)
         {
-            
             VictoryJ2.SetActive(true);
-            Destroy(coreStationJ1);
+            coreStationJ1.GetComponent<Animator>().Play("CoreExplosion");
+            Destroy(coreStationJ1, 1.0f);
             restart.SetActive(true);
             
         }
@@ -54,10 +54,7 @@ public class Player : MonoBehaviour
         
         if(coreStationJ2.GetComponent<StationState>().health <= 0)
         {
-            
-            Debug.Log("aled");
             VictoryJ1.SetActive(true);
-            
             restart.SetActive(true);
             coreStationJ1.GetComponent<Animator>().Play("CoreExplosion");
             Destroy(coreStationJ2, 1.0f);
