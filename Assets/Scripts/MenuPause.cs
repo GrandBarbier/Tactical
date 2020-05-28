@@ -10,6 +10,12 @@ public class MenuPause : MonoBehaviour
     public GameObject QuitB;
     public GameObject GameplayManager;
 
+    public GameObject choicePanel1;
+    public GameObject choicePanel2;
+    public GameObject stationPanel1;
+    public GameObject stationPanel2;
+    public GameObject stat;
+
     public bool paused;
 
     // Start is called before the first frame update
@@ -31,6 +37,11 @@ public class MenuPause : MonoBehaviour
             Restart.SetActive(true);
             Resume.SetActive(true);
             QuitB.SetActive(true);
+            stationPanel1.SetActive(false);
+            stationPanel2.SetActive(false);
+            choicePanel1.SetActive(false);
+            choicePanel2.SetActive(false);
+            stat.SetActive(false);
             Time.timeScale = 0;
         }
         if (paused == false)
@@ -39,18 +50,13 @@ public class MenuPause : MonoBehaviour
             Restart.SetActive(false);
             Resume.SetActive(false);
             QuitB.SetActive(false);
+            stat.SetActive(true);
             Time.timeScale = 1;
         }
     }
     public void ResumeGame()
     {
-        Debug.Log("RESUME"); //le jeu reprend son cours, les boutons disparaissent de l'écran
-        Restart.SetActive(false);
-        Resume.SetActive(false);
-        QuitB.SetActive(false);
-        GameplayManager.SetActive(true);
-
-        Time.timeScale = 1;
+        paused = false;
        
     }
 
