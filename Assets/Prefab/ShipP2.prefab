@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: 41e3534e8254bd845a90ef5378817e7b, type: 2}
+  ship: {fileID: 0}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   moved: 0

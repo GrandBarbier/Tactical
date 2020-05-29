@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
+using TMPro;
 using UnityEngine.UI;
 
 public class Station : MonoBehaviour
@@ -38,7 +39,7 @@ public class Station : MonoBehaviour
     public bool spawn;
     public bool turn;
     public bool usable;
-    public bool spawned;
+    //public bool spawned;
 
     public Vector3Int clickPos;
 
@@ -49,8 +50,7 @@ public class Station : MonoBehaviour
     public List<GameObject> allyShips;
 
     public StatVaisseau actualShip;
-
-
+    
     public int money;
     public int nbStation;
     public Text textM;
@@ -103,26 +103,30 @@ public class Station : MonoBehaviour
         {
             usable = false;
         }
-        
-        if (Input.GetMouseButtonDown(0) && selection.selected == false && turn == true && usable == true && spawned == false)
+
+        if (Input.GetMouseButtonDown(0) && turn == true && usable == true && selection.selected == false)
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
-            
             if (spawn == false)
             {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),
+                    Vector2.zero, Mathf.Infinity, mask);
                 if (hit.collider != null)
                 {
-                    if(hit.collider.tag ==TagFilterAlly || hit.collider.tag == TagFilterCoreStation)
+                    if (hit.collider.tag == TagFilterAlly || hit.collider.tag == TagFilterCoreStation)
                     {
-                        chosen = hit.collider.gameObject;
-                        stationUI.SetActive(true);
-                    } 
+                        if (hit.collider.GetComponent<StationState>().spawned == false)
+                        {
+                            chosen = hit.collider.gameObject;
+                            stationUI.SetActive(true);
+                        }
+                    }
                 }
             }
-            else
+            else if (chosen.GetComponent<StationState>().spawned == false)
             {
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
+                
                 for (int i = 0; i < selectable.Count; i++)
                 {
                     if (clickPos == selectable[i])
@@ -133,11 +137,18 @@ public class Station : MonoBehaviour
                             {
                                 SpawnShip(actualShip);
                                 actualShip = null;
-                                break; 
+                                break;
                             }
                         }
                     }
+                    else
+                    {
+                        actualShip = null;
+                        ResetTilemap();
+                    }
                 }
+
+                chosen = null;
             }
         }
     }
@@ -152,7 +163,7 @@ public class Station : MonoBehaviour
         stationUI.SetActive(false);
         ResetTilemap();
         spawn = false;
-        spawned = true;
+        chosen.GetComponent<StationState>().spawned = true;
     }
 
     public void Exit()
@@ -176,7 +187,6 @@ public class Station : MonoBehaviour
         price = ship.prix;
         if (money >= price)
         {
-            
             spawn = true;
             ResetTilemap();
             startTile = walkableTilemap.WorldToCell(chosen.transform.position);
@@ -189,10 +199,8 @@ public class Station : MonoBehaviour
             cdActif = true;
             feedback.gameObject.SetActive(true);
             feedback.text = "Not Enough Mineral";
-            
         }
-        stationUI.SetActive(false); 
-        
+        stationUI.SetActive(false);
     }
 
     public List<Vector3Int> GetWalkableTiles(int range, Vector3Int start)

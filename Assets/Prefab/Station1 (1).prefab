@@ -132,6 +132,9 @@ MonoBehaviour:
   stationCore2: {fileID: 21300000, guid: 7ef9306bb8c47404fb460196de69ff9c, type: 3}
   text: {fileID: 6522306824025697169}
   animator: {fileID: 4656883015615954229}
+  spawned: 0
+  stationScript: {fileID: 0}
+  turnManager: {fileID: 0}
 --- !u!95 &4656883015615954229
 Animator:
   serializedVersion: 3

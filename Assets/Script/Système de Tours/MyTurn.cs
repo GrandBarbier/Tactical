@@ -27,8 +27,12 @@ namespace Script.Système_de_Tours
             player.selectable = true;
 
             player.station.turn = true;
-            player.station.spawned = false;
             player.station.enabled = true;
+
+            for (int i = 0; i < player.station.allyStation.Count; i++)
+            {
+                player.station.allyStation[i].GetComponent<StationState>().spawned = false;
+            }
 
             player.station.money = player.station.money + 1500 + (500 * player.station.allyStation.Count);
         }
@@ -44,10 +48,6 @@ namespace Script.Système_de_Tours
             player.gameObject.GetComponent<AttackTilemap>().attackButton.GetComponent<Image>().color = Color.white;
             player.gameObject.GetComponent<AttackTilemap>().captureButton.GetComponent<Image>().color = Color.white;
             player.gameObject.GetComponent<AttackTilemap>().moveButton.GetComponent<Image>().color = Color.white;
-
-
-
-
         }
     }
 }

@@ -133,6 +133,9 @@ MonoBehaviour:
   animator: {fileID: 1262478270225711812, guid: ceba8860811228e4e99fcb5eb3ada470,
     type: 3}
 --- !u!1 &6366940999465322325
+  spawned: 0
+  stationScript: {fileID: 0}
+  turnManager: {fileID: 0}
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

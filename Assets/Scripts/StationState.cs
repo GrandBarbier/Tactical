@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Script.Système_de_Tours;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -17,9 +18,18 @@ public class StationState : MonoBehaviour
     public Sprite stationCore2;
     public TextMeshProUGUI text;
     public Animator animator;
+
+    public bool spawned;
+    public Station stationScript;
+    public TurnManager turnManager;
+    
+    
     
     void Start()
     {
+        turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
+        stationScript = turnManager.players[turnManager.actualTurn].GetComponent<Station>();
+        
       if (gameObject.tag == "CoreStationP1")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
@@ -40,7 +50,6 @@ public class StationState : MonoBehaviour
             animator.Play("AlienNeutre");
             health = health + 5;
         }
-
     }
 
     
@@ -74,6 +83,8 @@ public class StationState : MonoBehaviour
         }
     }
 
+    
+    
     public void TakeDamage(int dmg)
     {
         health -= dmg; 
@@ -87,7 +98,6 @@ public class StationState : MonoBehaviour
             gameObject.tag = "StationP1";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
-            
         }
         
         else if (player.name == "Player 2")
