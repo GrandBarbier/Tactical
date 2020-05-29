@@ -345,6 +345,7 @@
           <e p="StatVaisseau.cs" t="Include" />
           <e p="Switch.cs" t="Include" />
           <e p="Terrain.cs" t="Include" />
+          <e p="TutorialManager.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">

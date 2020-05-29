@@ -39,7 +39,6 @@ public class Station : MonoBehaviour
     public bool spawn;
     public bool turn;
     public bool usable;
-    //public bool spawned;
 
     public Vector3Int clickPos;
 
@@ -88,6 +87,7 @@ public class Station : MonoBehaviour
         textM.text = money.ToString();
 
         allyStation = allyStation.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
+        allyStation = allyStation.Union(GameObject.FindGameObjectsWithTag(TagFilterCoreStation)).ToList();
         allShips = selection.allShips;
         allyShips = selection.allyShips;
         ActualiseShipPos();
@@ -114,7 +114,7 @@ public class Station : MonoBehaviour
                 {
                     if (hit.collider.tag == TagFilterAlly || hit.collider.tag == TagFilterCoreStation)
                     {
-                        if (hit.collider.GetComponent<StationState>().spawned == false)
+                        if (hit.collider.gameObject.GetComponent<StationState>().spawned == false)
                         {
                             chosen = hit.collider.gameObject;
                             stationUI.SetActive(true);
@@ -122,7 +122,7 @@ public class Station : MonoBehaviour
                     }
                 }
             }
-            else if (chosen.GetComponent<StationState>().spawned == false)
+            else
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 clickPos = walkableTilemap.WorldToCell(mouseWorldPos);
@@ -137,6 +137,7 @@ public class Station : MonoBehaviour
                             {
                                 SpawnShip(actualShip);
                                 actualShip = null;
+                                chosen = null;
                                 break;
                             }
                         }
@@ -145,10 +146,10 @@ public class Station : MonoBehaviour
                     {
                         actualShip = null;
                         ResetTilemap();
+                        chosen = null;
+                        spawn = false;
                     }
                 }
-
-                chosen = null;
             }
         }
     }
@@ -160,6 +161,7 @@ public class Station : MonoBehaviour
         vaisseau.GetComponent<Stats>().moved = true;
         vaisseau.GetComponent<Stats>().attacked = true;
         Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
+        money = money - price;
         stationUI.SetActive(false);
         ResetTilemap();
         spawn = false;
@@ -192,7 +194,6 @@ public class Station : MonoBehaviour
             startTile = walkableTilemap.WorldToCell(chosen.transform.position);
             selectable = GetWalkableTiles(1, startTile);
             ColorWalkable();
-            money = money - price;
         }
         else
         {
