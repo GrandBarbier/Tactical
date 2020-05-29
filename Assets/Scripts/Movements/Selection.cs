@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -47,6 +48,17 @@ public class Selection : MonoBehaviour
         allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
+        
+        for (int i = 0; allShips.Count > i; i++)
+        {
+            var moving = allShips[i].GetComponent<AIPath>().velocity;
+
+            if (moving.x > 0 || moving.y > 0)
+            {
+                    choicePanel.SetActive(false);
+            }
+        }
+        
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP1")).ToList();
 
         if (deselected)
@@ -58,7 +70,6 @@ public class Selection : MonoBehaviour
             ship = null;
         }
 
-        
         if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<Player>().selectable == true )
         {
             

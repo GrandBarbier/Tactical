@@ -66,25 +66,28 @@ public class AttackTilemap : MonoBehaviour
 
     void Update()
     {
-        if (selection.ship.GetComponent<Stats>().moved == true)
+        if (selection.ship)
         {
-            moveButton.GetComponent<Image>().color = Color.grey;
-        }
-        if(selection.ship.GetComponent<Stats>().moved == false)
-        {
-            moveButton.GetComponent<Image>().color = Color.white;
-        }
+            if (selection.ship.GetComponent<Stats>().moved == true)
+            {
+                moveButton.GetComponent<Image>().color = Color.grey;
+            }
+            if(selection.ship.GetComponent<Stats>().moved == false)
+            {
+                moveButton.GetComponent<Image>().color = Color.white;
+            }
 
-        if (selection.ship.GetComponent<Stats>().attacked == true || selection.ship.GetComponent<Stats>().captured == true)
-        {
-            attackButton.GetComponent<Image>().color = Color.grey;
-            captureButton.GetComponent<Image>().color = Color.grey;
-            moveButton.GetComponent<Image>().color = Color.grey;
-        }
-        else
-        {
-            attackButton.GetComponent<Image>().color = Color.white;
-            captureButton.GetComponent<Image>().color = Color.white;
+            if (selection.ship.GetComponent<Stats>().attacked == true || selection.ship.GetComponent<Stats>().captured == true)
+            {
+                attackButton.GetComponent<Image>().color = Color.grey;
+                captureButton.GetComponent<Image>().color = Color.grey;
+                moveButton.GetComponent<Image>().color = Color.grey;
+            }
+            else
+            {
+                attackButton.GetComponent<Image>().color = Color.white;
+                captureButton.GetComponent<Image>().color = Color.white;
+            }
         }
 
         enemyShips.Clear();
