@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StationState : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class StationState : MonoBehaviour
     public Sprite station1;
     public Sprite station2;
     public Sprite stationCore2;
-    public Text text;
+    public TextMeshProUGUI text;
     public Animator animator;
     
     void Start()

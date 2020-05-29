@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class Stats : MonoBehaviour
@@ -19,8 +20,8 @@ public class Stats : MonoBehaviour
     public int damage;
     public int range;
     public int dmgMin, dmgMax;
-    
-    public Text hpText;
+
+    public TextMeshProUGUI hpText;
 
     public GameObject player1;
     public GameObject player2;
