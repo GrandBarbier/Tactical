@@ -24,6 +24,9 @@ namespace Script.Système_de_Tours
 
         public GameObject buttonNext;
 
+        public Animator Alien;
+        public Animator Human;
+
 
         void Awake()
         {
@@ -49,12 +52,14 @@ namespace Script.Système_de_Tours
 
             if (players[actualTurn].name == "Player 1")
             {
+                Human.SetBool("Tour", true);
                 interface1.SetActive(true);
                 interface2.SetActive(false);
                 buttonNext.GetComponent<Image>().sprite = NextHuman;
             }
             else
             {
+                Alien.SetBool("Tour", true);
                 interface1.SetActive(false);
                 interface2.SetActive(true);
                 buttonNext.GetComponent<Image>().sprite = NextAlien;

@@ -66,7 +66,7 @@ public class AttackTilemap : MonoBehaviour
 
     void Update()
     {
-        if (selection.ship)
+        if (selection.selected)
         {
             if (selection.ship.GetComponent<Stats>().moved == true)
             {
@@ -89,7 +89,7 @@ public class AttackTilemap : MonoBehaviour
                 captureButton.GetComponent<Image>().color = Color.white;
             }
         }
-
+        
         enemyShips.Clear();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
         enemyShips = enemyShips.Union(GameObject.FindGameObjectsWithTag("Station")).ToList();

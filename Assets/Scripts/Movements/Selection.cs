@@ -107,7 +107,6 @@ public class Selection : MonoBehaviour
                 }
             }
         }
-
         
         if (ship != null)
         {

@@ -330,6 +330,7 @@
           <e p="Movements" t="Include">
             <e p="AttackTilemap.cs" t="Include" />
             <e p="CaptureTilemap.cs" t="Include" />
+            <e p="FOV.cs" t="Include" />
             <e p="MovementsTilemap.cs" t="Include" />
             <e p="Selection.cs" t="Include" />
           </e>
