@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace Script.Système_de_Tours
 
         public GameObject buttonNext;
 
+        public float delay;
+
         public Animator Alien;
         public Animator Human;
 
@@ -43,6 +46,8 @@ namespace Script.Système_de_Tours
         {
             actualTurn = 0;
             players[actualTurn].GetComponent<Player>().ItsMyTurn();
+            StopCoroutine(DisableButton(0));
+            StartCoroutine(DisableButton(delay));
            
         }
 
@@ -56,6 +61,7 @@ namespace Script.Système_de_Tours
                 interface1.SetActive(true);
                 interface2.SetActive(false);
                 buttonNext.GetComponent<Image>().sprite = NextHuman;
+               
             }
             else
             {
@@ -78,6 +84,16 @@ namespace Script.Système_de_Tours
                 actualTurn = 0;
             }
             players[actualTurn].GetComponent<Player>().ItsMyTurn();
+            StopCoroutine(DisableButton(0));
+            StartCoroutine(DisableButton(delay));
+        }
+        
+        IEnumerator DisableButton(float time)
+        {
+            buttonNext.GetComponent<Button>().enabled = false;
+            yield return new WaitForSeconds(time);
+            buttonNext.GetComponent<Button>().enabled = true;
+           
         }
     }
 }

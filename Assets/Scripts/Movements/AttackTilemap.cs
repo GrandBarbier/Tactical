@@ -73,7 +73,7 @@ public class AttackTilemap : MonoBehaviour
         {
             if (selection.ship.GetComponent<Stats>().moved == true)
             {
-                moveButton.GetComponent<Image>().color = Color.grey;
+                moveButton.GetComponent<Image>().color = Color.black;
             }
             if(selection.ship.GetComponent<Stats>().moved == false)
             {
@@ -82,9 +82,9 @@ public class AttackTilemap : MonoBehaviour
 
             if (selection.ship.GetComponent<Stats>().attacked == true || selection.ship.GetComponent<Stats>().captured == true)
             {
-                attackButton.GetComponent<Image>().color = Color.grey;
-                captureButton.GetComponent<Image>().color = Color.grey;
-                moveButton.GetComponent<Image>().color = Color.grey;
+                attackButton.GetComponent<Image>().color = Color.black;
+                captureButton.GetComponent<Image>().color = Color.black;
+                moveButton.GetComponent<Image>().color = Color.black;
             }
             else
             {
