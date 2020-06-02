@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 using System.Linq;
 using TMPro;
 using UnityEngine.UI;
+using Debug = System.Diagnostics.Debug;
+
 
 public class Station : MonoBehaviour
 {
@@ -91,7 +93,7 @@ public class Station : MonoBehaviour
         allShips = selection.allShips;
         allyShips = selection.allyShips;
         ActualiseShipPos();
-
+        
         nbStation = allyStation.Count;
         
         limit = baseCount + allyStation.Count;
@@ -142,14 +144,11 @@ public class Station : MonoBehaviour
                             }
                         }
                     }
-                    else
-                    {
-                        actualShip = null;
-                        ResetTilemap();
-                        chosen = null;
-                        spawn = false;
-                    }
                 }
+                actualShip = null;
+                ResetTilemap();
+                chosen = null;
+                spawn = false;
             }
         }
     }
@@ -237,10 +236,10 @@ public class Station : MonoBehaviour
     public List<Vector3Int> GetAdjacentTiles(Vector3Int tile)
     {
         List<Vector3Int> testTiles = new List<Vector3Int>();
-        testTiles.Add(tile + Vector3Int.up);
-        testTiles.Add(tile + Vector3Int.down);
         testTiles.Add(tile + Vector3Int.left);
         testTiles.Add(tile + Vector3Int.right);
+        testTiles.Add(tile + Vector3Int.up);
+        testTiles.Add(tile + Vector3Int.down);
         List<Vector3Int> tiles = new List<Vector3Int>();
 
         foreach (var vec in testTiles)
