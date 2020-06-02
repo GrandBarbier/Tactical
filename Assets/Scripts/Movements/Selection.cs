@@ -48,17 +48,17 @@ public class Selection : MonoBehaviour
         allyShips = allyShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterAlly)).ToList();
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag(TagFilterEnemy)).ToList();
-        
+
         for (int i = 0; allShips.Count > i; i++)
         {
             var moving = allShips[i].GetComponent<AIPath>().velocity;
 
             if (moving.x > 0 || moving.y > 0)
             {
-                    choicePanel.SetActive(false);
+                choicePanel.SetActive(false);
             }
         }
-        
+
         allShips = allShips.Union(GameObject.FindGameObjectsWithTag("StationP1")).ToList();
 
         if (deselected)
