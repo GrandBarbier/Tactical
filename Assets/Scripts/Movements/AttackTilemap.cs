@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Pathfinding;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -55,6 +56,8 @@ public class AttackTilemap : MonoBehaviour
     public GameObject captureButton;
     public GameObject moveButton;
 
+    public GameObject damagePoints;
+    
     private void Start()
     {
         allShips = GetComponent<Selection>().allShips;
@@ -121,7 +124,11 @@ public class AttackTilemap : MonoBehaviour
                             {
                                 if (clickPos == enemyShipPos[j])
                                 {
-                                    hit.collider.gameObject.GetComponent<Stats>().health -= selection.ship.GetComponent<Stats>().damage;
+                                    var dmg = selection.ship.GetComponent<Stats>().damage;
+                                    hit.collider.gameObject.GetComponent<Stats>().health -= dmg;
+                                    var dmgObj = gameObject;
+                                    dmgObj = Instantiate(damagePoints, hit.collider.gameObject.transform.position, Quaternion.identity);
+                                    dmgObj.GetComponentInChildren<TextMesh>().text = "-" + dmg;
                                     attacking = false;
                                     selection.ship.GetComponent<Stats>().attacked = true;
                                     selection.ship.GetComponent<Stats>().moved = true;
@@ -137,8 +144,10 @@ public class AttackTilemap : MonoBehaviour
                 Debug.Log(hit2.collider);
                 if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == TagCoreStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
                 {
-
-                    hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(selection.ship.GetComponent<Stats>().damage);
+                    var dmg = selection.ship.GetComponent<Stats>().damage;
+                    hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(dmg);
+                    var dmgObj =Instantiate(damagePoints, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    dmgObj.GetComponentInChildren<TextMeshPro>().text = "-" + dmg;
                     selection.ship.GetComponent<Stats>().attacked = true;
                     selection.ship.GetComponent<Stats>().moved = true;
                 }
