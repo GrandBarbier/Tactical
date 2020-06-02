@@ -53,7 +53,7 @@ public class Selection : MonoBehaviour
         {
             var moving = allShips[i].GetComponent<AIPath>().velocity;
 
-            if (moving.x > 0 || moving.y > 0)
+            if (moving.x > 0.5 || moving.y > 0.5)
             {
                 choicePanel.SetActive(false);
             }
