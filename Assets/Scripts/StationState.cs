@@ -29,26 +29,31 @@ public class StationState : MonoBehaviour
     {
         turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
         stationScript = turnManager.players[turnManager.actualTurn].GetComponent<Station>();
+
+        if(gameObject.tag == "Station")
+        {
+            text.enabled = false;
+        }
         
       if (gameObject.tag == "CoreStationP1")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
-            health = health + 10;
+            health = 10;
         }
         if (gameObject.tag == "CoreStationP2")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
-            health = health + 10;
+            health = 10;
         }
         if (gameObject.tag == "StationP1")
         {
             animator.Play("HumanNeutre");
-            health = health + 5;
+            health = 5;
         }
         if (gameObject.tag == "StationP2")
         {
             animator.Play("AlienNeutre");
-            health = health + 5;
+            health = 5;
         }
     }
 
@@ -73,6 +78,7 @@ public class StationState : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
             animator.Play("IdleNeutre");
+            text.enabled = false;
         }
         else if(gameObject.tag == "StationP2" && health <= 0)
         {
@@ -80,6 +86,7 @@ public class StationState : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
             animator.Play("IdleNeutre");
+            text.enabled = false;
         }
     }
 
@@ -98,6 +105,7 @@ public class StationState : MonoBehaviour
             gameObject.tag = "StationP1";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
+            text.enabled = true;
         }
         
         else if (player.name == "Player 2")
@@ -106,7 +114,8 @@ public class StationState : MonoBehaviour
             gameObject.tag = "StationP2";
             health += newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station2;
-           
+            text.enabled = true;
+
         }
     }
 }
