@@ -41,7 +41,6 @@ public class Stats : MonoBehaviour
         movePoints = ship.mvt;
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;
-        damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
         range = ship.portée;
         if (gameObject.tag == "player1")
         {
@@ -65,6 +64,8 @@ public class Stats : MonoBehaviour
             Destroy(gameObject);
         }
         hpText.transform.rotation = iniRot;
+
+        damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
     }
     
 }

@@ -38,22 +38,22 @@ public class StationState : MonoBehaviour
       if (gameObject.tag == "CoreStationP1")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
-            health = 10;
+            health = newHealth;
         }
         if (gameObject.tag == "CoreStationP2")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = stationCore2;
-            health = 10;
+            health = newHealth;
         }
         if (gameObject.tag == "StationP1")
         {
             animator.Play("HumanNeutre");
-            health = 5;
+            health = newHealth;
         }
         if (gameObject.tag == "StationP2")
         {
             animator.Play("AlienNeutre");
-            health = 5;
+            health = newHealth;
         }
     }
 
