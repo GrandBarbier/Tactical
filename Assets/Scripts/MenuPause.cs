@@ -46,7 +46,7 @@ public class MenuPause : MonoBehaviour
         }
         if (paused == false)
         {
-            Debug.Log("PAUSE");
+            
             Restart.SetActive(false);
             Resume.SetActive(false);
             QuitB.SetActive(false);
