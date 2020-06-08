@@ -15,9 +15,10 @@ MonoBehaviour:
   prix: 2500
   shield: 4
   health: 3
-  mvt: 5
-  dmgMin: -1
-  dmgMax: -2
-  "port\xE9e": 1
+  mvt: 0
+  dmgMin: 30
+  dmgMax: 50
+  "port\xE9e": 4
   sprite1: {fileID: 21300000, guid: ac990335cae656d42a8f5a78031f3fd5, type: 3}
   sprite2: {fileID: 21300000, guid: f42d5c00978152f4283f62588978d9a2, type: 3}
+  animator: {fileID: 0}

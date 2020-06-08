@@ -142,14 +142,16 @@ public class AttackTilemap : MonoBehaviour
             if (hit2.collider != null)
             {
                 Debug.Log(hit2.collider);
-                if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == TagCoreStationEnnemy || hit2.collider.tag == "Station") && selection.ship.GetComponent<Stats>().attacked == false)
+                if ((hit2.collider.tag == TagStationEnnemy || hit2.collider.tag == TagCoreStationEnnemy) && selection.ship.GetComponent<Stats>().attacked == false)
                 {
+                    Debug.Log("bonjour");
                     var dmg = selection.ship.GetComponent<Stats>().damage;
                     hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(dmg);
-                    var dmgObj =Instantiate(damagePoints, hit.collider.gameObject.transform.position, Quaternion.identity);
-                    dmgObj.GetComponentInChildren<TextMeshPro>().text = "-" + dmg;
+                    var dmgObj = Instantiate(damagePoints, hit2.collider.gameObject.transform.position, Quaternion.identity);
+                    dmgObj.GetComponentInChildren<TextMesh>().text = "-" + dmg;
                     selection.ship.GetComponent<Stats>().attacked = true;
                     selection.ship.GetComponent<Stats>().moved = true;
+                    ResetTilemap();
                 }
             }
 
