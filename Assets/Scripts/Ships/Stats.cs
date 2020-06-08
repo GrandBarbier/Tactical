@@ -28,6 +28,8 @@ public class Stats : MonoBehaviour
 
     public Canvas canvas;
 
+    public Animator animator;
+
     private Quaternion iniRot;
     private void Start()
     {
@@ -42,13 +44,17 @@ public class Stats : MonoBehaviour
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;
         range = ship.portée;
+        animator.runtimeAnimatorController = ship.animator;
+        
         if (gameObject.tag == "player1")
         {
             GetComponent<SpriteRenderer>().sprite = sprite1;
+            animator.SetBool("isHuman", true);
         }
         if (gameObject.tag == "player2")
         {
             GetComponent<SpriteRenderer>().sprite = sprite2;
+            animator.SetBool("isHuman", false);
         }
         
 

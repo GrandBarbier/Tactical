@@ -103,7 +103,7 @@ public class StationState : MonoBehaviour
         {
             animator.Play("HumanNeutre");
             gameObject.tag = "StationP1";
-            health += newHealth;
+            health = newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
             text.enabled = true;
         }
@@ -112,7 +112,7 @@ public class StationState : MonoBehaviour
         {
             animator.Play("AlienNeutre");
             gameObject.tag = "StationP2";
-            health += newHealth;
+            health = newHealth;
             gameObject.GetComponent<SpriteRenderer>().sprite = station2;
             text.enabled = true;
 
