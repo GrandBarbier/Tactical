@@ -14,7 +14,7 @@ public class HaloHandler : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInChildren<Image>().enabled = false;
+
     }
 
     void Update()
