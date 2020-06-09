@@ -51,7 +51,9 @@ public class Station : MonoBehaviour
     public List<GameObject> allyShips;
 
     public StatVaisseau actualShip;
-    
+
+    public Text textLimit;
+    public Text textIncome;
     public int money;
     public int nbStation;
     public Text textM;
@@ -95,6 +97,8 @@ public class Station : MonoBehaviour
         ActualiseShipPos();
         
         nbStation = allyStation.Count;
+
+        textIncome.text = "(+" + (((allyStation.Count - 1) * 500) + 2000) + ")";
         
         limit = baseCount + allyStation.Count;
         if (allyShips.Count < limit)
@@ -106,6 +110,8 @@ public class Station : MonoBehaviour
             usable = false;
         }
 
+        textLimit.text = "Max : " + allyShips.Count.ToString() + "/" + limit;
+        
         if (Input.GetMouseButtonDown(0) && turn == true && usable == true && selection.selected == false)
         {
             if (spawn == false)
