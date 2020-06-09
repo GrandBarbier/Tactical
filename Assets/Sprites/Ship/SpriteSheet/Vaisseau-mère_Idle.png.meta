@@ -1,16 +1,34 @@
 fileFormatVersion: 2
-guid: 1ac01cc14ac654c449b1b89b9a41374b
+guid: d7557e0573b8bb34ea41303772cd503c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2779475425360543728
-    second: "Vaisseau_m\xE8re idel alien_0"
+      213: 8909473739343682179
+    second: "Vaisseau-m\xE8re_Idle_0"
   - first:
-      213: 5360813510444926428
-    second: "Vaisseau_m\xE8re idel alien_1"
+      213: 4419954020268091941
+    second: "Vaisseau-m\xE8re_Idle_1"
   - first:
-      213: 7942706332161413197
-    second: "Vaisseau_m\xE8re idel alien_2"
+      213: -1360804289233530250
+    second: "Vaisseau-m\xE8re_Idle_2"
+  - first:
+      213: 5013012765729187448
+    second: "Vaisseau-m\xE8re_Idle_3"
+  - first:
+      213: -8614714292730703921
+    second: "Vaisseau-m\xE8re_Idle_4"
+  - first:
+      213: 8182341238903465733
+    second: "Vaisseau-m\xE8re_Idle_5"
+  - first:
+      213: 4800114127224163388
+    second: "Vaisseau-m\xE8re_Idle_6"
+  - first:
+      213: -2253457104104143745
+    second: "Vaisseau-m\xE8re_Idle_7"
+  - first:
+      213: -7374527346625155589
+    second: "Vaisseau-m\xE8re_Idle_8"
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -119,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Vaisseau_m\xE8re idel alien_0"
+      name: "Vaisseau-m\xE8re_Idle_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0100571b3d15d69d0800000000000000
-      internalID: -2779475425360543728
+      spriteID: 38a5049592fc4ab70800000000000000
+      internalID: 8909473739343682179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Vaisseau_m\xE8re idel alien_1"
+      name: "Vaisseau-m\xE8re_Idle_1"
       rect:
         serializedVersion: 2
         x: 256
@@ -154,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd54f252c7f656a40800000000000000
-      internalID: 5360813510444926428
+      spriteID: 52aa3a573c4d65d30800000000000000
+      internalID: 4419954020268091941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Vaisseau_m\xE8re idel alien_2"
+      name: "Vaisseau-m\xE8re_Idle_2"
       rect:
         serializedVersion: 2
         x: 512
@@ -175,8 +193,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d401abba3592a3e60800000000000000
-      internalID: 7942706332161413197
+      spriteID: 672586375b37d1de0800000000000000
+      internalID: -1360804289233530250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_3"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87669c3ec8cc19540800000000000000
+      internalID: 5013012765729187448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_4"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf4e445ef2627880800000000000000
+      internalID: -8614714292730703921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_5"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507eedf31048d8170800000000000000
+      internalID: 8182341238903465733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_6"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cc78add5e6d9240800000000000000
+      internalID: 4800114127224163388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_7"
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74ca4104bc1ab0e0800000000000000
+      internalID: -2253457104104143745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Vaisseau-m\xE8re_Idle_8"
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfde00e337a68a990800000000000000
+      internalID: -7374527346625155589
       vertices: []
       indices: 
       edges: []

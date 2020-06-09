@@ -21,4 +21,4 @@ MonoBehaviour:
   "port\xE9e": 6
   sprite1: {fileID: 21300000, guid: 519723b18ea08ec42a491ed804111bbe, type: 3}
   sprite2: {fileID: 21300000, guid: 9ea63d1ab5f600b4dbae34956d7a68a2, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 9100000, guid: 9c31e552f7b3953429c2c535e5f5b6f1, type: 2}
