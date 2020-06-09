@@ -9,6 +9,7 @@ public class MenuPause : MonoBehaviour
     public GameObject Restart;
     public GameObject QuitB;
     public GameObject GameplayManager;
+    public GameObject panel;
 
     public GameObject choicePanel1;
     public GameObject choicePanel2;
@@ -42,6 +43,7 @@ public class MenuPause : MonoBehaviour
             choicePanel1.SetActive(false);
             choicePanel2.SetActive(false);
             stat.SetActive(false);
+            panel.SetActive(true);
             Time.timeScale = 0;
         }
         if (paused == false)
@@ -51,6 +53,7 @@ public class MenuPause : MonoBehaviour
             Resume.SetActive(false);
             QuitB.SetActive(false);
             stat.SetActive(true);
+            panel.SetActive(false);
             Time.timeScale = 1;
         }
     }
