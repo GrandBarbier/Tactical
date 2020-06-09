@@ -6,6 +6,11 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject Page1;
     public GameObject Page2;
+
+    public GameObject Resume;
+    public GameObject Restart;
+    public GameObject QuitB;
+    public GameObject tuto;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +26,8 @@ public class TutorialManager : MonoBehaviour
 
     public void tutorialButton()
     {
-        Page1.SetActive(true);
+        Page1.SetActive(true); Restart.SetActive(false);
+        
     }
 
     public void Next()
@@ -40,5 +46,6 @@ public class TutorialManager : MonoBehaviour
     {
         Page2.SetActive(false);
         Page1.SetActive(false);
+        
     }
 }

@@ -10,12 +10,14 @@ public class MenuPause : MonoBehaviour
     public GameObject QuitB;
     public GameObject GameplayManager;
     public GameObject panel;
+    public GameObject tuto;
 
     public GameObject choicePanel1;
     public GameObject choicePanel2;
     public GameObject stationPanel1;
     public GameObject stationPanel2;
     public GameObject stat;
+    
 
     public bool paused;
 
@@ -44,6 +46,7 @@ public class MenuPause : MonoBehaviour
             choicePanel2.SetActive(false);
             stat.SetActive(false);
             panel.SetActive(true);
+            tuto.SetActive(true);
             Time.timeScale = 0;
         }
         if (paused == false)
@@ -52,6 +55,7 @@ public class MenuPause : MonoBehaviour
             Restart.SetActive(false);
             Resume.SetActive(false);
             QuitB.SetActive(false);
+            tuto.SetActive(false);
             stat.SetActive(true);
             panel.SetActive(false);
             Time.timeScale = 1;
