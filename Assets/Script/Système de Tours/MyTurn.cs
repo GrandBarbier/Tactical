@@ -15,13 +15,14 @@ namespace Script.Système_de_Tours
         }
         public override void OnStateEnter()
         {
-            
             player.myTurn = true;
                 
             for (int i = 0; i < player.gameObject.GetComponent<Selection>().allyShips.Count; i++)
             {
                 player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().moved = false;
                 player.gameObject.GetComponent<Selection>().allyShips[i].GetComponent<Stats>().attacked = false;
+                
+                player.gameObject.GetComponent<Selection>().allyShips[i].gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
             }
 
             player.selectable = true;
@@ -48,6 +49,11 @@ namespace Script.Système_de_Tours
             player.gameObject.GetComponent<AttackTilemap>().attackButton.GetComponent<Image>().color = Color.white;
             player.gameObject.GetComponent<AttackTilemap>().captureButton.GetComponent<Image>().color = Color.white;
             player.gameObject.GetComponent<AttackTilemap>().moveButton.GetComponent<Image>().color = Color.white;
+
+            for (int i = 0; i < player.gameObject.GetComponent<Selection>().allyShips.Count; i++)
+            {
+                player.gameObject.GetComponent<Selection>().allyShips[i].gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
 }
