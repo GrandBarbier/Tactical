@@ -1,8 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-#if UNITY_EDITOR
-using UnityEditor.Animations;
-#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Ship", menuName = "Ship")]
@@ -18,10 +15,10 @@ public class StatVaisseau : ScriptableObject
     public Sprite sprite1;
     public Sprite sprite2;
 
-#if UNITY_EDITOR
-    public AnimatorController animator;
-#endif
-
+    public int id;
+   
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +30,5 @@ public class StatVaisseau : ScriptableObject
     {
         
     }
+    
 }

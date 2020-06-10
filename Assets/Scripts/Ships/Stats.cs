@@ -47,10 +47,8 @@ public class Stats : MonoBehaviour
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;
         range = ship.portée;
-
-
-        animator.runtimeAnimatorController = ship.animator;
-
+        
+        
         if (gameObject.tag == "player1")
         {
             GetComponent<SpriteRenderer>().sprite = sprite1;
@@ -61,6 +59,8 @@ public class Stats : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = sprite2;
             animator.SetBool("isHuman", false);
         }
+        
+        animator.SetInteger("id", ship.id);
 
 
 

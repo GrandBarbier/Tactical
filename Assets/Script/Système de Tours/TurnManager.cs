@@ -48,7 +48,6 @@ namespace Script.Système_de_Tours
             players[actualTurn].GetComponent<Player>().ItsMyTurn();
             StopCoroutine(DisableButton(0));
             StartCoroutine(DisableButton(delay));
-           
         }
 
         private void Update()
@@ -61,7 +60,6 @@ namespace Script.Système_de_Tours
                 interface1.SetActive(true);
                 interface2.SetActive(false);
                 buttonNext.GetComponent<Image>().sprite = NextHuman;
-               
             }
             else
             {
@@ -93,7 +91,6 @@ namespace Script.Système_de_Tours
             buttonNext.GetComponent<Button>().enabled = false;
             yield return new WaitForSeconds(time);
             buttonNext.GetComponent<Button>().enabled = true;
-           
         }
     }
 }

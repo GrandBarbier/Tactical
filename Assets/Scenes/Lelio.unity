@@ -1225,7 +1225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -1.3999634}
+  m_AnchoredPosition: {x: -2, y: -1.4000244}
   m_SizeDelta: {x: 22, y: -10.395996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &167392863
@@ -6415,7 +6415,7 @@ Tilemap:
       - {fileID: -1930709229247872502, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -3868451276141828006, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -7923369553798300111, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 10, y: 1, z: 0}
@@ -6496,7 +6496,7 @@ Tilemap:
       - {fileID: -1930709229247872502, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -3868451276141828006, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -7923369553798300111, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 10, y: 3, z: 0}
@@ -6505,7 +6505,7 @@ Tilemap:
       - {fileID: -1930709229247872502, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -3868451276141828006, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -7923369553798300111, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: 4, z: 0}
@@ -6541,7 +6541,7 @@ Tilemap:
       - {fileID: -1930709229247872502, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -3868451276141828006, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
       - {fileID: -7923369553798300111, guid: 0245ec43efce7854b8bbb1a0e68a3e4c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 5, y: 4, z: 0}
@@ -21093,7 +21093,7 @@ Tilemap:
       - {fileID: -7563312954159479502, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
       - {fileID: -3668538018856267397, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
       - {fileID: -7056379283122529403, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: -1, z: 0}
@@ -21261,7 +21261,7 @@ Tilemap:
       - {fileID: -7563312954159479502, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
       - {fileID: -3668538018856267397, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
       - {fileID: -7056379283122529403, guid: 827d1805c8e68e340bd9a7cc34ba2230, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: 0, z: 0}
@@ -22193,6 +22193,7 @@ MonoBehaviour:
   QuitB: {fileID: 522180113}
   GameplayManager: {fileID: 2061103671}
   panel: {fileID: 167392861}
+  tuto: {fileID: 0}
   choicePanel1: {fileID: 29724143}
   choicePanel2: {fileID: 1192224383}
   stationPanel1: {fileID: 900007826}
