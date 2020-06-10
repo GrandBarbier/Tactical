@@ -14,20 +14,24 @@ public class HaloHandler : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInChildren<Image>().enabled = false;
+        if (GetComponentInChildren<Image>())
+            GetComponentInChildren<Image>().enabled = false;
     }
 
     void Update()
     {
         if (GetComponent<Stats>().moved == false && GetComponent<Stats>().attacked == false)
-            GetComponentInChildren<Image>().sprite = available;
+            if (GetComponentInChildren<Image>())
+                GetComponentInChildren<Image>().sprite = available;
         
         if (GetComponent<Stats>().moved)
         {
-            GetComponentInChildren<Image>().sprite = moved;
+            if (GetComponentInChildren<Image>())
+                GetComponentInChildren<Image>().sprite = moved;
             if (GetComponent<Stats>().attacked)
             {
-                GetComponentInChildren<Image>().sprite = attacked;
+                if (GetComponentInChildren<Image>())
+                    GetComponentInChildren<Image>().sprite = attacked;
 
             }
         }

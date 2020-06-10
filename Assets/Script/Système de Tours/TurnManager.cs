@@ -53,7 +53,8 @@ namespace Script.Système_de_Tours
 
         private void Update()
         {
-            turnText.text = players[actualTurn].name;
+            if (turnText)
+                turnText.text = players[actualTurn].name;
 
             if (players[actualTurn].name == "Player 1")
             {
