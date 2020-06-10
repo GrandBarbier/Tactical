@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Alan.unity
     guid: c67dede7a58adbc4ab68dbe69758c360
+  - enabled: 1
+    path: "Assets/Scenes/Cr\xE9dit.unity"
+    guid: 8543e4cb691bcdb4a9d33e5f37424ef3
   m_configObjects: {}
