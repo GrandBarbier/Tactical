@@ -19,7 +19,7 @@ public class HaloHandler : MonoBehaviour
 
     void Update()
     {
-        GetComponentInChildren<Image>().sprite = available;
+        //GetComponentInChildren<Image>().sprite = available;
         
         if (GetComponent<Stats>().moved)
         {
