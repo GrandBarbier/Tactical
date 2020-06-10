@@ -30,7 +30,6 @@ namespace Script.Système_de_Tours
         public Animator Alien;
         public Animator Human;
 
-
         void Awake()
         {
             if(Instance == null)
@@ -45,7 +44,7 @@ namespace Script.Système_de_Tours
         private void Start()
         {
             actualTurn = 0;
-            players[actualTurn].GetComponent<Player>().ItsMyTurn();
+            players[0].GetComponent<Player>().ItsMyTurn();
             StopCoroutine(DisableButton(0));
             StartCoroutine(DisableButton(delay));
         }
@@ -53,9 +52,9 @@ namespace Script.Système_de_Tours
         private void Update()
         {
             if (turnText)
-                turnText.text = players[actualTurn].name;
+                turnText.text = "Turn : " + (actualTurn + 1);
 
-            if (players[actualTurn].name == "Player 1")
+            if (players[actualTurn%2].name == "Player 1")
             {
                 Human.SetBool("Tour", true);
                 interface1.SetActive(true);
@@ -73,16 +72,12 @@ namespace Script.Système_de_Tours
 
         public void NextTurn()
         {
-            players[actualTurn].GetComponent<MovementsTilemap>().ResetTilemap();
-            players[actualTurn].GetComponent<AttackTilemap>().ResetTilemap();
-            players[actualTurn].GetComponent<Selection>().selected = false;
-            players[actualTurn].GetComponent<Player>().ItsNotMyTurn();
+            players[actualTurn%2].GetComponent<MovementsTilemap>().ResetTilemap();
+            players[actualTurn%2].GetComponent<AttackTilemap>().ResetTilemap();
+            players[actualTurn%2].GetComponent<Selection>().selected = false;
+            players[actualTurn%2].GetComponent<Player>().ItsNotMyTurn();
             actualTurn ++;
-            if (actualTurn > players.Count - 1)
-            {
-                actualTurn = 0;
-            }
-            players[actualTurn].GetComponent<Player>().ItsMyTurn();
+            players[actualTurn%2].GetComponent<Player>().ItsMyTurn();
             StopCoroutine(DisableButton(0));
             StartCoroutine(DisableButton(delay));
         }
