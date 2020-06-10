@@ -1524,6 +1524,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Page1: {fileID: 1954289577}
   Page2: {fileID: 1210650068}
+  Resume: {fileID: 0}
+  Restart: {fileID: 0}
+  QuitB: {fileID: 0}
+  tuto: {fileID: 0}
 --- !u!1 &582342924
 GameObject:
   m_ObjectHideFlags: 0
@@ -5912,7 +5916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1954289578
 RectTransform:
   m_ObjectHideFlags: 0

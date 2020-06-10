@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
 
 
 public class Stats : MonoBehaviour
@@ -44,7 +47,7 @@ public class Stats : MonoBehaviour
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;
         range = ship.portée;
-        animator.runtimeAnimatorController = ship.animator;
+        
         
         if (gameObject.tag == "player1")
         {
@@ -57,6 +60,10 @@ public class Stats : MonoBehaviour
             animator.SetBool("isHuman", false);
         }
         
+        animator.SetInteger("id", ship.id);
+
+
+
 
     }
 
