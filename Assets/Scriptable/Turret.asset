@@ -22,3 +22,5 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: ac990335cae656d42a8f5a78031f3fd5, type: 3}
   sprite2: {fileID: 21300000, guid: f42d5c00978152f4283f62588978d9a2, type: 3}
   id: 4
+  dirigent1: {fileID: 21300000, guid: b57017464961ee54db1b08a9b1bf3964, type: 3}
+  dirigent2: {fileID: 21300000, guid: 6bdeaaf8e628d314f9e905b074943dc7, type: 3}
