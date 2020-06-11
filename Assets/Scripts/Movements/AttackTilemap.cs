@@ -57,8 +57,8 @@ public class AttackTilemap : MonoBehaviour
     public GameObject moveButton;
 
     public GameObject damagePoints;
-
     public AudioSource audio;
+    public GameObject hitMarker;
     
     private void Start()
     {
@@ -135,6 +135,7 @@ public class AttackTilemap : MonoBehaviour
                                     var dmgObj = gameObject;
                                     dmgObj = Instantiate(damagePoints, hit.collider.gameObject.transform.position, Quaternion.identity);
                                     dmgObj.GetComponentInChildren<TextMesh>().text = "-" + dmg;
+                                    Instantiate(hitMarker, hit.collider.gameObject.transform.position, Quaternion.identity);
                                     attacking = false;
                                     selection.ship.GetComponent<Stats>().attacked = true;
                                     selection.ship.GetComponent<Stats>().moved = true;
@@ -155,6 +156,7 @@ public class AttackTilemap : MonoBehaviour
                     hit2.collider.gameObject.GetComponent<StationState>().TakeDamage(dmg);
                     var dmgObj = Instantiate(damagePoints, hit2.collider.gameObject.transform.position, Quaternion.identity);
                     dmgObj.GetComponentInChildren<TextMesh>().text = "-" + dmg;
+                    Instantiate(hitMarker, hit2.collider.gameObject.transform.position, Quaternion.identity);
                     selection.ship.GetComponent<Stats>().attacked = true;
                     selection.ship.GetComponent<Stats>().moved = true;
                     ResetTilemap();
