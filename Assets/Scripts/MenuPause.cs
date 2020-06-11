@@ -11,6 +11,7 @@ public class MenuPause : MonoBehaviour
     public GameObject GameplayManager;
     public GameObject panel;
     public GameObject tuto;
+    public GameObject Abandon;
 
     public GameObject choicePanel1;
     public GameObject choicePanel2;
@@ -48,6 +49,7 @@ public class MenuPause : MonoBehaviour
             panel.SetActive(true);
             tuto.SetActive(true);
             Time.timeScale = 0;
+            Abandon.SetActive(true);
         }
         if (paused == false)
         {
@@ -59,6 +61,7 @@ public class MenuPause : MonoBehaviour
             stat.SetActive(true);
             panel.SetActive(false);
             Time.timeScale = 1;
+            Abandon.SetActive(false);
         }
     }
     public void ResumeGame()
