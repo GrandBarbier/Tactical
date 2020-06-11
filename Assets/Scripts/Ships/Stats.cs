@@ -14,6 +14,8 @@ public class Stats : MonoBehaviour
     public StatVaisseau ship;
     public Sprite sprite1;
     public Sprite sprite2;
+    public Sprite dirigent1;
+    public Sprite dirigent2;
     public bool moved = false;
     public bool attacked = false;
     public bool captured = false;
@@ -38,6 +40,10 @@ public class Stats : MonoBehaviour
     {
         sprite1 = ship.sprite1;
         sprite2 = ship.sprite2;
+
+        dirigent1 = ship.dirigent1;
+        dirigent2 = ship.dirigent2;
+
         iniRot = hpText.transform.rotation;
         player1 = GameObject.Find("Player 1");
         player2 = GameObject.Find("Player 2");

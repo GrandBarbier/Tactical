@@ -16,7 +16,8 @@ public class Selection : MonoBehaviour
     [TagSelector]
     public string TagFilterEnemy = "";
 
-
+    public GameObject player;
+    public GameObject Image;
 
     public LayerMask mask;
     public LayerMask uiMask;
@@ -31,6 +32,7 @@ public class Selection : MonoBehaviour
     public Text Stat;
    
     
+
     public bool selected;
 
     public bool deselected;
@@ -89,7 +91,17 @@ public class Selection : MonoBehaviour
                         ship = hit.collider.gameObject;
                         selected = true;
                         choicePanel.SetActive(true);
-                        Stat.GetComponent<Text>().text = "Damage : " + ship.GetComponent<Stats>().dmgMin.ToString() + "-" + ship.GetComponent<Stats>().dmgMax.ToString();
+                        if (player.GetComponent<Station>().enabled == true)
+                        {
+                            Image.GetComponent<Image>().sprite = ship.GetComponent<Stats>().dirigent1;
+                            Stat.GetComponent<Text>().text = "Damage : " + ship.GetComponent<Stats>().dmgMin.ToString() + "-" + ship.GetComponent<Stats>().dmgMax.ToString() + "\n" + "Range : " + ship.GetComponent<Stats>().range.ToString() + "\n" + "Movement : " + ship.GetComponent<Stats>().movePoints.ToString();
+                        }
+                        if (player.GetComponent<Station>().enabled == false)
+                        {
+                            Image.GetComponent<Image>().sprite = ship.GetComponent<Stats>().dirigent2;
+                            Stat.GetComponent<Text>().text = "Damage : " + ship.GetComponent<Stats>().dmgMin.ToString() + "-" + ship.GetComponent<Stats>().dmgMax.ToString() + "\n" + "Range : " + ship.GetComponent<Stats>().range.ToString() + "\n" + "Movement : " + ship.GetComponent<Stats>().movePoints.ToString();
+                        }
+
                     }
                 }
                 else

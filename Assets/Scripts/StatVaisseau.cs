@@ -16,9 +16,12 @@ public class StatVaisseau : ScriptableObject
     public Sprite sprite2;
 
     public int id;
-   
-    
-    
+
+    public Sprite dirigent1;
+    public Sprite dirigent2;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
