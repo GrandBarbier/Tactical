@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: protgrid
+  m_Name: Obstacle
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 9db8f84b9b3a15041bfa17aee8a21af2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3882353}
+  m_Sprite: {fileID: 21300000, guid: 166d4d733f0f2ac459109fcd4489f4c3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 2
+  m_ColliderType: 1
