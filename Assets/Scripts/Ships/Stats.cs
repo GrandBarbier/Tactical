@@ -63,7 +63,8 @@ public class Stats : MonoBehaviour
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;
         range = ship.portée;
-        
+
+        audioOnShips = GetComponent<AudioSource>();
         
         if (gameObject.tag == "player1")
         {

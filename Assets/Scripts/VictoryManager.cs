@@ -49,6 +49,8 @@ public class VictoryManager : MonoBehaviour
 
     public void victoryJ2()
     {
+        audio.clip = exploSound;
+        audio.Play();
         GameManager.GetComponent<MenuPause>().enabled = false;
         panel.SetActive(true);
         VictoryJ2.SetActive(true);
@@ -60,6 +62,8 @@ public class VictoryManager : MonoBehaviour
 
     public void victoryJ1()
     {
+        audio.clip = exploSound;
+        audio.Play();
         GameManager.GetComponent<MenuPause>().enabled = false;
         panel.SetActive(true);
         VictoryJ1.SetActive(true);
@@ -73,6 +77,8 @@ public class VictoryManager : MonoBehaviour
     {
         if (InterfaceH == true)
         {
+            audio.clip = exploSound;
+            audio.Play();
             GameManager.GetComponent<MenuPause>().enabled = false;
             panel.SetActive(true);
             VictoryJ2.SetActive(true);
