@@ -33,6 +33,8 @@ public class Stats : MonoBehaviour
 
     public Animator animator;
 
+    public AnimationClip deathClip;
+
     private Quaternion iniRot;
     private void Start()
     {
@@ -88,12 +90,19 @@ public class Stats : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(hpText.gameObject);
-            Destroy(gameObject);
+            StartCoroutine(Death(deathClip.length));
         }
         hpText.transform.rotation = iniRot;
 
         damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
     }
-    
+
+
+
+    IEnumerator Death(float time)
+    {
+        animator.SetBool("dead",true);
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
 }

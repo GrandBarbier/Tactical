@@ -180,9 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc180d080ab869f42be36a73eb817479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: a4999fc344a67cc4591473046598410a, type: 2}
+  ship: {fileID: 11400000, guid: 6631051dbc0bb6540b1001528d11bf5b, type: 2}
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
+  dirigent1: {fileID: 0}
+  dirigent2: {fileID: 0}
   moved: 1
   attacked: 1
   captured: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   canvas: {fileID: 2123923001694823831}
   animator: {fileID: -6523093333787983790}
+  deathClip: {fileID: 7400000, guid: f392657c06cd74f4087d0d302eb04a4e, type: 2}
 --- !u!95 &-6523093333787983790
 Animator:
   serializedVersion: 3
