@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-#if UNITY_EDITOR
-using UnityEditor.Animations;
-#endif
+using Pathfinding;
 
 
 public class Stats : MonoBehaviour
@@ -76,6 +74,17 @@ public class Stats : MonoBehaviour
     private void Update()
     {
         hpText.text =health.ToString();
+        
+        var moving = gameObject.GetComponent<AIPath>().velocity;
+
+        if (moving.x > 0.1 || moving.y > 0.1 || moving.x < -0.1 || moving.y < -0.1)
+        {
+            animator.SetBool("moving",true);
+        }
+        else
+        {
+            animator.SetBool("moving",false);
+        }
 
         if (health <= 0)
         {
