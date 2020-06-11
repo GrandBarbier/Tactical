@@ -40,11 +40,13 @@ public class HaloHandler : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        GetComponentInChildren<Image>().enabled = true;
+        if (GetComponentInChildren<Image>())
+            GetComponentInChildren<Image>().enabled = true;
     }
 
     private void OnMouseExit()
     {
-        GetComponentInChildren<Image>().enabled = false;
+        if (GetComponentInChildren<Image>())
+            GetComponentInChildren<Image>().enabled = false;
     }
 }

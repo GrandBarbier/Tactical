@@ -20,7 +20,11 @@ public class StatVaisseau : ScriptableObject
     public Sprite dirigent1;
     public Sprite dirigent2;
 
+    public AudioClip shootSound;
+    public AudioClip explosionSound;
+    public AudioClip hitSound;
 
+    public AudioSource audioOnShips;
 
     // Start is called before the first frame update
     void Start()

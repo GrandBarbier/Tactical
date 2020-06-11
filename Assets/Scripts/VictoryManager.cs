@@ -12,6 +12,10 @@ public class VictoryManager : MonoBehaviour
     public GameObject panel;
     public GameObject Restart;
     public GameObject GameManager;
+
+    public AudioSource audio;
+
+    public AudioClip exploSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class VictoryManager : MonoBehaviour
     {
         if (coreStationJ1.GetComponent<StationState>().health <= 0)
         {
+            audio.clip = exploSound;
+            audio.Play();
             GameManager.GetComponent<MenuPause>().enabled = false;
             panel.SetActive(true);
             VictoryJ2.SetActive(true);
@@ -36,6 +42,8 @@ public class VictoryManager : MonoBehaviour
 
         if (coreStationJ2.GetComponent<StationState>().health <= 0)
         {
+            audio.clip = exploSound;
+            audio.Play();
             GameManager.GetComponent<MenuPause>().enabled = false;
             panel.SetActive(true);
             VictoryJ1.SetActive(true);

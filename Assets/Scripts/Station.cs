@@ -64,6 +64,9 @@ public class Station : MonoBehaviour
 
     public Text feedback;
 
+    public AudioClip buySound;
+    public AudioClip wrongSound;
+
    
     void Start()
     {
@@ -166,6 +169,8 @@ public class Station : MonoBehaviour
         vaisseau.GetComponent<Stats>().moved = true;
         vaisseau.GetComponent<Stats>().attacked = true;
         Instantiate(vaisseau, walkableTilemap.GetCellCenterWorld(clickPos), Quaternion.identity);
+        GetComponent<AudioSource>().clip = buySound;
+        GetComponent<AudioSource>().Play();
         money = money - price;
         stationUI.SetActive(false);
         ResetTilemap();
@@ -202,6 +207,8 @@ public class Station : MonoBehaviour
         }
         else
         {
+            GetComponent<AudioSource>().clip = wrongSound;
+            GetComponent<AudioSource>().Play();
             cdActif = true;
             feedback.gameObject.SetActive(true);
             feedback.text = "Not Enough Mineral";

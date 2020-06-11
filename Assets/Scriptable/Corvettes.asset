@@ -24,3 +24,7 @@ MonoBehaviour:
   id: 1
   dirigent1: {fileID: 21300000, guid: 66603458683db2949ac165d2b81f1931, type: 3}
   dirigent2: {fileID: 21300000, guid: c7309d0e7d223f74091e4131205ba847, type: 3}
+  shootSound: {fileID: 8300000, guid: fa2cfa84c56d6e7459ee3d4db31db128, type: 3}
+  explosionSound: {fileID: 8300000, guid: f8b17c47040f35a4b80424c3e321b1b8, type: 3}
+  hitSound: {fileID: 8300000, guid: 8fc1c3f2055cca94eb30ee5054b4e97d, type: 3}
+  audioOnShips: {fileID: 0}

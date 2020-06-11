@@ -9,7 +9,6 @@ public class StationState : MonoBehaviour
 {
    
     public int health;
-    public int baseHealth;
     public int newHealth;
 
     public Sprite station;
@@ -22,6 +21,11 @@ public class StationState : MonoBehaviour
     public bool spawned;
     public Station stationScript;
     public TurnManager turnManager;
+
+    public AudioClip shutdownSound;
+    public AudioClip captureSound;
+    public AudioClip exploSound;
+    public AudioSource audio;
     
     
     
@@ -30,12 +34,14 @@ public class StationState : MonoBehaviour
         turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
         stationScript = turnManager.players[turnManager.actualTurn].GetComponent<Station>();
 
+        audio = GetComponent<AudioSource>();
+
         if(gameObject.tag == "Station")
         {
             text.enabled = false;
         }
         
-      if (gameObject.tag == "CoreStationP1")
+       if (gameObject.tag == "CoreStationP1")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = station1;
             health = newHealth;
@@ -62,11 +68,15 @@ public class StationState : MonoBehaviour
     {
         if (gameObject.tag == "CoreStationP2" && health <= 0)
         {
+            audio.clip = exploSound;
+            audio.Play();
             animator.SetBool("Destroy", true);
             
         }
         if (gameObject.tag == "CoreStationP1" && health <= 0)
         {
+            audio.clip = exploSound;
+            audio.Play();
             animator.SetBool("Destroy", true);
 
         }
@@ -74,6 +84,8 @@ public class StationState : MonoBehaviour
 
         if (gameObject.tag == "StationP1" && health <= 0)
         {
+            audio.clip = shutdownSound;
+            audio.Play();
             gameObject.tag = "Station";
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
@@ -82,6 +94,8 @@ public class StationState : MonoBehaviour
         }
         else if(gameObject.tag == "StationP2" && health <= 0)
         {
+            audio.clip = shutdownSound;
+            audio.Play();
             gameObject.tag = "Station";
             gameObject.GetComponent<SpriteRenderer>().sprite = station;
             health = newHealth;
@@ -101,6 +115,8 @@ public class StationState : MonoBehaviour
     {
         if(player.name == "Player 1")
         {
+            audio.clip = captureSound;
+            audio.Play();
             animator.Play("HumanNeutre");
             gameObject.tag = "StationP1";
             health = newHealth;
@@ -110,6 +126,8 @@ public class StationState : MonoBehaviour
         
         else if (player.name == "Player 2")
         {
+            audio.clip = captureSound;
+            audio.Play();
             animator.Play("AlienNeutre");
             gameObject.tag = "StationP2";
             health = newHealth;

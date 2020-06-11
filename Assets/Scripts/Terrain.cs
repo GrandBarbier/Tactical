@@ -5,6 +5,7 @@ using System.Linq;
 using Script.Système_de_Tours;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class Terrain : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Terrain : MonoBehaviour
 
     public int malusNebul;
     public int malusAster;
+    
     
     private void Update()
     {

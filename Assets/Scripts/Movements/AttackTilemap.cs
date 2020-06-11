@@ -57,9 +57,13 @@ public class AttackTilemap : MonoBehaviour
     public GameObject moveButton;
 
     public GameObject damagePoints;
+
+    public AudioSource audio;
     
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         allShips = GetComponent<Selection>().allShips;
 
         ActualiseShipPos();
@@ -126,6 +130,8 @@ public class AttackTilemap : MonoBehaviour
                                 {
                                     var dmg = selection.ship.GetComponent<Stats>().damage;
                                     hit.collider.gameObject.GetComponent<Stats>().health -= dmg;
+                                    audio.clip = selection.ship.GetComponent<Stats>().shootSound;
+                                    audio.Play();
                                     var dmgObj = gameObject;
                                     dmgObj = Instantiate(damagePoints, hit.collider.gameObject.transform.position, Quaternion.identity);
                                     dmgObj.GetComponentInChildren<TextMesh>().text = "-" + dmg;

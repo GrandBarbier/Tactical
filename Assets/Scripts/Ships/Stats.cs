@@ -25,6 +25,11 @@ public class Stats : MonoBehaviour
     public int damage;
     public int range;
     public int dmgMin, dmgMax;
+    public AudioClip hitSound;
+    public AudioClip explosionSound;
+    public AudioClip shootSound;
+    
+    public AudioSource audioOnShips;
 
     public TextMeshProUGUI hpText;
 
@@ -43,6 +48,11 @@ public class Stats : MonoBehaviour
 
         dirigent1 = ship.dirigent1;
         dirigent2 = ship.dirigent2;
+
+        hitSound = ship.hitSound;
+        explosionSound = ship.explosionSound;
+        shootSound = ship.shootSound;
+        audioOnShips = ship.audioOnShips;
 
         iniRot = hpText.transform.rotation;
         player1 = GameObject.Find("Player 1");
@@ -79,6 +89,8 @@ public class Stats : MonoBehaviour
 
         if (health <= 0)
         {
+            audioOnShips.clip = explosionSound;
+            audioOnShips.Play();
             Destroy(hpText.gameObject);
             Destroy(gameObject);
         }

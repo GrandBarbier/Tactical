@@ -17,14 +17,17 @@ public class MenuPause : MonoBehaviour
     public GameObject stationPanel1;
     public GameObject stationPanel2;
     public GameObject stat;
-    
+
+    public AudioSource audio;
+    public AudioClip pauseSound;
+    public AudioClip uiSound;
 
     public bool paused;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,9 @@ public class MenuPause : MonoBehaviour
     {
         if (Input.GetKeyDown("escape")) //le jeu s'arrète, les boutons du menu pause s'affiche
         {
-            paused = !paused;   
+            paused = !paused;
+            audio.clip = pauseSound;
+            audio.Play();
         }
         if (paused == true)
         {
@@ -63,18 +68,23 @@ public class MenuPause : MonoBehaviour
     }
     public void ResumeGame()
     {
+        audio.clip = uiSound;
+        audio.Play();
         paused = false;
-       
     }
 
     public void RestartGame()
     {
+        audio.clip = uiSound;
+        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Time.timeScale = 1;
 
     }
     public void Quit()
     {
+        audio.clip = uiSound;
+        audio.Play();
         Application.Quit(); //quitter l'application
         Debug.Log("Quit");
         
