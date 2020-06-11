@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-#if UNITY_EDITOR
-using UnityEditor.Animations;
-#endif
+using Pathfinding;
 
 
 public class Stats : MonoBehaviour
@@ -39,6 +37,8 @@ public class Stats : MonoBehaviour
     public Canvas canvas;
 
     public Animator animator;
+
+    public AnimationClip deathClip;
 
     private Quaternion iniRot;
     private void Start()
@@ -86,17 +86,35 @@ public class Stats : MonoBehaviour
     private void Update()
     {
         hpText.text =health.ToString();
+        
+        var moving = gameObject.GetComponent<AIPath>().velocity;
+
+        if (moving.x > 0.1 || moving.y > 0.1 || moving.x < -0.1 || moving.y < -0.1)
+        {
+            animator.SetBool("moving",true);
+        }
+        else
+        {
+            animator.SetBool("moving",false);
+        }
 
         if (health <= 0)
         {
             audioOnShips.clip = explosionSound;
             audioOnShips.Play();
-            Destroy(hpText.gameObject);
-            Destroy(gameObject);
+            StartCoroutine(Death(deathClip.length));
         }
         hpText.transform.rotation = iniRot;
 
         damage = UnityEngine.Random.Range(ship.dmgMin, ship.dmgMax);
     }
-    
+
+
+
+    IEnumerator Death(float time)
+    {
+        animator.SetBool("dead",true);
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
 }

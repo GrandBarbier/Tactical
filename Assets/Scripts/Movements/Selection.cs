@@ -90,7 +90,20 @@ public class Selection : MonoBehaviour
                     {
                         ship = hit.collider.gameObject;
                         selected = true;
-                        choicePanel.SetActive(true);
+                        if (hit.collider.GetComponent<Stats>().ship.id == 4)
+                        {
+                            choicePanel.transform.GetChild(0).gameObject.SetActive(false);
+                            choicePanel.transform.GetChild(1).localPosition = new Vector3(5.5f,6);
+                            choicePanel.transform.GetChild(2).localPosition = new Vector3(5.5f,-6);
+                        }
+                        else
+                        {
+                            choicePanel.transform.GetChild(0).localPosition = new Vector3(5.5f,12);
+                            choicePanel.transform.GetChild(0).gameObject.SetActive(true);
+                            choicePanel.transform.GetChild(1).localPosition = new Vector3(5.5f,0);
+                            choicePanel.transform.GetChild(2).localPosition = new Vector3(5.5f,-12);
+                        }
+                        
                         if (player.GetComponent<Station>().enabled == true)
                         {
                             Image.GetComponent<Image>().sprite = ship.GetComponent<Stats>().dirigent1;
@@ -124,6 +137,7 @@ public class Selection : MonoBehaviour
         {
             Vector3 rectTransform = new Vector3(ship.transform.position.x + 1, ship.transform.position.y + 1 , 0);
             choicePanel.transform.position = rectTransform;
+            choicePanel.SetActive(true);
         }
     }
 }
