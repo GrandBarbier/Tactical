@@ -285,7 +285,7 @@ public class AttackTilemap : MonoBehaviour
                 targetable = GetWalkableTiles(selection.ship.GetComponent<Stats>().range, startTile);
                 ColorWalkable();
                 attacking = true;
-                selection.deselected = true;
+                selection.choicePanel.SetActive(false);
                
             }
             

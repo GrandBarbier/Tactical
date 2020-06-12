@@ -17410,7 +17410,7 @@ PrefabInstance:
     - target: {fileID: 9033327337373516419, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[33].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9033327337373516419, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
@@ -18290,7 +18290,7 @@ PrefabInstance:
     - target: {fileID: 9033327337373516419, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[9].second.m_AnimationSpeed
-      value: 10
+      value: 10.000001
       objectReference: {fileID: 0}
     - target: {fileID: 9033327337373516419, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
@@ -18325,7 +18325,7 @@ PrefabInstance:
     - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
       propertyPath: m_TileColorArray.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
         type: 3}
@@ -19022,6 +19022,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[34].second.m_TileIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[2].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[2].m_Data.r
+      value: 1.10705e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[2].m_Data.g
+      value: 1.10705e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[2].m_Data.b
+      value: 1.10705e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033327337708650569, guid: 4feadc80ab3a6e844be7c4e7853f8794,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[2].m_Data.a
+      value: 1.10705e-40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4feadc80ab3a6e844be7c4e7853f8794, type: 3}
@@ -22715,6 +22740,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1076700080}
+    - target: {fileID: 7090064645659141219, guid: dcd89bef622c6534bb4327589aa0f97a,
+        type: 3}
+      propertyPath: newHealth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 7090064645659141230, guid: dcd89bef622c6534bb4327589aa0f97a,
         type: 3}
       propertyPath: m_Offset.y
@@ -24081,6 +24111,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1180507497}
+    - target: {fileID: 5705144110864527209, guid: 2dfb3912c95d6da4ab90bc352db27cc2,
+        type: 3}
+      propertyPath: newHealth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 8152804464891329732, guid: 2dfb3912c95d6da4ab90bc352db27cc2,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -24589,7 +24624,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -28891,8 +28926,6 @@ MonoBehaviour:
   panel: {fileID: 167392861}
   tuto: {fileID: 927427285}
   Abandon: {fileID: 2087743847}
-  choicePanel1: {fileID: 29724143}
-  choicePanel2: {fileID: 1192224383}
   stationPanel1: {fileID: 900007826}
   stationPanel2: {fileID: 1151876151}
   stat: {fileID: 905207318}
