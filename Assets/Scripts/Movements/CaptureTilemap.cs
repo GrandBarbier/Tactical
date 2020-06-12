@@ -25,7 +25,6 @@ public class CaptureTilemap : MonoBehaviour
 
     public bool capturing;
     
-
     private void Start()
     {
         selection = gameObject.GetComponent<Selection>();

@@ -30,8 +30,10 @@ public class Selection : MonoBehaviour
     public GameObject choicePanel;
 
     public Text Stat;
-   
-    
+
+    public AttackTilemap attackTilemap;
+    public CaptureTilemap captureTilemap;
+    public MovementsTilemap movementsTilemap;
 
     public bool selected;
 
@@ -41,6 +43,9 @@ public class Selection : MonoBehaviour
     private void Start()
     {
         choicePanel.SetActive(false);
+        attackTilemap = gameObject.GetComponent<AttackTilemap>();
+        captureTilemap = gameObject.GetComponent<CaptureTilemap>();
+        movementsTilemap = gameObject.GetComponent<MovementsTilemap>();
     }
 
     void Update()
@@ -114,7 +119,6 @@ public class Selection : MonoBehaviour
                             Image.GetComponent<Image>().sprite = ship.GetComponent<Stats>().dirigent2;
                             Stat.GetComponent<Text>().text = "Damage : " + ship.GetComponent<Stats>().dmgMin.ToString() + "-" + ship.GetComponent<Stats>().dmgMax.ToString() + "\n" + "Range : " + ship.GetComponent<Stats>().range.ToString() + "\n" + "Movement : " + ship.GetComponent<Stats>().movePoints.ToString();
                         }
-
                     }
                 }
                 else
@@ -132,8 +136,7 @@ public class Selection : MonoBehaviour
                 }
             }
         }
-        
-        if (ship != null)
+        if (ship != null && attackTilemap.attacking == false && captureTilemap.capturing == false && movementsTilemap.moving == false)
         {
             Vector3 rectTransform = new Vector3(ship.transform.position.x + 1, ship.transform.position.y + 1 , 0);
             choicePanel.transform.position = rectTransform;
