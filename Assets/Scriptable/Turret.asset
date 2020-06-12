@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4469f989ff7aa34f885fd00e835b519, type: 3}
   m_Name: Turret
   m_EditorClassIdentifier: 
-  prix: 2500
-  shield: 4
-  health: 3
+  prix: 3000
+  health: 100
   mvt: 0
-  dmgMin: 30
-  dmgMax: 50
-  "port\xE9e": 4
+  dmgMin: 60
+  dmgMax: 80
+  "port\xE9e": 3
   sprite1: {fileID: -4872454573403293386, guid: 39e37dc57a534e24d88aab415bd82bda,
     type: 3}
   sprite2: {fileID: -3392334011699399173, guid: 30d147e1b03072446a86805fdf13ef73,

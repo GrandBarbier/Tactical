@@ -6,7 +6,6 @@ using UnityEngine;
 public class StatVaisseau : ScriptableObject
 {
     public int prix;
-    public int shield;
     public int health;
     public int mvt;
     public int dmgMin;

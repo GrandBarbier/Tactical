@@ -58,7 +58,6 @@ public class Stats : MonoBehaviour
         player1 = GameObject.Find("Player 1");
         player2 = GameObject.Find("Player 2");
         health = ship.health;
-        shield = ship.shield;
         movePoints = ship.mvt;
         dmgMin = ship.dmgMin;
         dmgMax = ship.dmgMax;

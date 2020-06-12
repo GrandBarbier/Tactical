@@ -13,8 +13,6 @@ public class MenuPause : MonoBehaviour
     public GameObject tuto;
     public GameObject Abandon;
 
-    public GameObject choicePanel1;
-    public GameObject choicePanel2;
     public GameObject stationPanel1;
     public GameObject stationPanel2;
     public GameObject stat;
@@ -48,8 +46,6 @@ public class MenuPause : MonoBehaviour
             QuitB.SetActive(true);
             stationPanel1.SetActive(false);
             stationPanel2.SetActive(false);
-            choicePanel1.SetActive(false);
-            choicePanel2.SetActive(false);
             stat.SetActive(false);
             panel.SetActive(true);
             tuto.SetActive(true);

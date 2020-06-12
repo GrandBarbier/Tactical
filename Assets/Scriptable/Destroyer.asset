@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4469f989ff7aa34f885fd00e835b519, type: 3}
   m_Name: Destroyer
   m_EditorClassIdentifier: 
-  prix: 7000
-  shield: 5
-  health: 40
-  mvt: 4
-  dmgMin: 40
-  dmgMax: 60
-  "port\xE9e": 6
+  prix: 9000
+  health: 150
+  mvt: 3
+  dmgMin: 60
+  dmgMax: 80
+  "port\xE9e": 3
   sprite1: {fileID: 21300000, guid: 519723b18ea08ec42a491ed804111bbe, type: 3}
   sprite2: {fileID: 21300000, guid: 9ea63d1ab5f600b4dbae34956d7a68a2, type: 3}
   id: 3
